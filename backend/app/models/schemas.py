@@ -1,7 +1,8 @@
-﻿from typing import List, Optional, Literal
+from typing import List, Optional, Literal
 from pydantic import BaseModel, Field
 
 UrgencyLevel = Literal['critical', 'high', 'medium', 'low']
+WorkflowStatus = Literal['open', 'deferred', 'resolved']
 
 class EvidenceMetric(BaseModel):
     metricName: str
@@ -88,3 +89,35 @@ class HealthResponse(BaseModel):
     version: str
     environment: str
     timestamp: str
+
+# ---------------------------------------------
+# Advisor CRM Workflow & Notes Schemas
+# (Specified in docs/BACKEND_WORKFLOW_CONTRACTS.md)
+# ---------------------------------------------
+
+class AdvisorNoteCreate(BaseModel):
+    text: str = Field(..., min_length=1, max_length=5000, description="Advisor note or meeting minutes")
+    author: str = Field(default="Wealth Advisor", description="Advisor name or role")
+
+class AdvisorNoteResponse(BaseModel):
+    id: str
+    clientId: str
+    text: str
+    createdAt: str
+    author: str
+
+class WorkflowStatusUpdateRequest(BaseModel):
+    status: WorkflowStatus
+    deferredUntil: Optional[str] = Field(None, description="ISO Date string (YYYY-MM-DD) if status is deferred")
+    deferReason: Optional[str] = Field(None, description="Mandatory rationale if deferred")
+    resolutionNote: Optional[str] = Field(None, description="Mandatory audit explanation if resolved")
+
+class ClientWorkflowStateResponse(BaseModel):
+    clientId: str
+    status: WorkflowStatus
+    deferredUntil: Optional[str] = None
+    deferReason: Optional[str] = None
+    resolvedAt: Optional[str] = None
+    resolutionNote: Optional[str] = None
+    notes: List[AdvisorNoteResponse] = []
+    updatedAt: str

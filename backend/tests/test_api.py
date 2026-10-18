@@ -15,6 +15,9 @@ And Member 2 Advisor Workflow Endpoints:
 - GET /api/v1/advisors/worklist
 - GET /api/v1/clients
 - GET /api/v1/clients/{client_id}
+- GET /api/v1/clients/{client_id}/workflow
+- PATCH /api/v1/clients/{client_id}/workflow/status
+- POST /api/v1/clients/{client_id}/notes
 """
 
 import pytest
@@ -190,3 +193,77 @@ def test_get_v1_client_by_id(client):
 def test_get_v1_nonexistent_client(client):
     response = client.get('/api/v1/clients/cli_999999')
     assert response.status_code == 404
+
+# ==========================================
+# Member 2 Advisor Workflow CRM Endpoints
+# ==========================================
+
+def test_v1_client_workflow_state_initial(client):
+    response = client.get('/api/v1/clients/cli_001/workflow')
+    assert response.status_code == 200
+    data = response.json()
+    assert data['clientId'] == 'cli_001'
+    assert 'status' in data
+    assert isinstance(data['notes'], list)
+
+def test_v1_update_workflow_defer(client):
+    # Missing deferReason must trigger 400
+    bad_res = client.patch(
+        '/api/v1/clients/cli_001/workflow/status',
+        json={'status': 'deferred', 'deferredUntil': '2026-11-15', 'deferReason': ''}
+    )
+    assert bad_res.status_code == 400
+
+    # Valid deferral
+    res = client.patch(
+        '/api/v1/clients/cli_001/workflow/status',
+        json={
+            'status': 'deferred',
+            'deferredUntil': '2026-11-15',
+            'deferReason': 'Waiting for client CPA tax-loss consultation'
+        }
+    )
+    assert res.status_code == 200
+    data = res.json()
+    assert data['status'] == 'deferred'
+    assert data['deferredUntil'] == '2026-11-15'
+    assert 'tax-loss' in data['deferReason']
+
+def test_v1_update_workflow_resolve(client):
+    # Missing resolutionNote must trigger 400
+    bad_res = client.patch(
+        '/api/v1/clients/cli_001/workflow/status',
+        json={'status': 'resolved', 'resolutionNote': ''}
+    )
+    assert bad_res.status_code == 400
+
+    # Valid resolution
+    res = client.patch(
+        '/api/v1/clients/cli_001/workflow/status',
+        json={
+            'status': 'resolved',
+            'resolutionNote': 'Executed 10% equity trim to short duration Treasuries. Rebalanced.'
+        }
+    )
+    assert res.status_code == 200
+    data = res.json()
+    assert data['status'] == 'resolved'
+    assert 'Rebalanced' in data['resolutionNote']
+
+def test_v1_add_client_note(client):
+    note_payload = {
+        'text': 'Called Eleanor Vance regarding 14.2% equity drift. Rebalancing proposed for next Monday.',
+        'author': 'Lead Wealth Advisor'
+    }
+    response = client.post('/api/v1/clients/cli_001/notes', json=note_payload)
+    assert response.status_code == 201
+    data = response.json()
+    assert data['clientId'] == 'cli_001'
+    assert 'drift' in data['text']
+    assert data['author'] == 'Lead Wealth Advisor'
+
+    # Check note appears in workflow retrieval
+    wf_res = client.get('/api/v1/clients/cli_001/workflow')
+    assert wf_res.status_code == 200
+    wf_data = wf_res.json()
+    assert any(n['id'] == data['id'] for n in wf_data['notes'])
