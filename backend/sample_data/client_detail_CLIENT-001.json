@@ -1,0 +1,167 @@
+{
+  "client_id": "CLIENT-001",
+  "display_name": "Arthur Vance",
+  "risk_profile": "MODERATE",
+  "data_as_of": "2026-03-31",
+  "last_review_date": "2026-01-15",
+  "days_since_review": 75,
+  "portfolio": {
+    "valuation_date": "2026-03-31",
+    "total_value": 780000.0,
+    "cash_balance": 78000.0,
+    "holdings": [
+      {
+        "asset_id": "EQ-01",
+        "asset_name": "Global Large-Cap Equity Fund",
+        "category": "Equity",
+        "market_value": 213840.94,
+        "allocation_pct": 27.42,
+        "risk_tags": [
+          "EQUITY",
+          "CORE_INDEX"
+        ]
+      },
+      {
+        "asset_id": "EQ-05",
+        "asset_name": "Dividend Aristocrats Equity Fund",
+        "category": "Equity",
+        "market_value": 176159.06,
+        "allocation_pct": 22.58,
+        "risk_tags": [
+          "EQUITY",
+          "INCOME"
+        ]
+      },
+      {
+        "asset_id": "FI-02",
+        "asset_name": "Treasury Inflation-Protected (TIPS) ETF",
+        "category": "Fixed Income",
+        "market_value": 133507.17,
+        "allocation_pct": 17.12,
+        "risk_tags": [
+          "FIXED_INCOME",
+          "GOVERNMENT"
+        ]
+      },
+      {
+        "asset_id": "FI-05",
+        "asset_name": "Municipal Tax-Exempt Bond Fund",
+        "category": "Fixed Income",
+        "market_value": 178492.83,
+        "allocation_pct": 22.88,
+        "risk_tags": [
+          "FIXED_INCOME",
+          "TAX_ADVANTAGED"
+        ]
+      },
+      {
+        "asset_id": "CS-01",
+        "asset_name": "Treasury Money Market Fund",
+        "category": "Cash",
+        "market_value": 78000.0,
+        "allocation_pct": 10.0,
+        "risk_tags": [
+          "CASH_EQUIVALENT",
+          "LOW_RISK"
+        ]
+      }
+    ],
+    "target_allocation": {
+      "Equity": 50.0,
+      "Fixed Income": 40.0,
+      "Cash": 10.0
+    },
+    "is_stale": false,
+    "data_warnings": []
+  },
+  "goal": {
+    "goal_name": "Retirement Security Fund",
+    "goal_amount": 1200000.0,
+    "goal_date": "2035-12-31",
+    "current_value": 780000.0,
+    "progress_pct": 65.0,
+    "modeled_target_value": 753660.66,
+    "trajectory_status": "ON_TRACK",
+    "shortfall_amount": 0.0,
+    "shortfall_pct": 0.0,
+    "monthly_contribution_assumed": 1000.0,
+    "assumed_return_rate_pct": 6.0,
+    "assumptions_description": "Modeled path based on initial balance of $500,000, monthly contribution of $1,000, and 6.0% assumed annual return rate over 62 elapsed months of 179 total months."
+  },
+  "historical_performance": [
+    {
+      "period_label": "1Y",
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31",
+      "client_return_pct": -4.2,
+      "benchmark_id": "BMK-MODERATE",
+      "benchmark_name": "Moderate 50/50 Balanced Index",
+      "benchmark_return_pct": -6.5,
+      "performance_gap_pp": 2.3,
+      "aligned": true
+    },
+    {
+      "period_label": "6M",
+      "period_start": "2025-10-01",
+      "period_end": "2026-03-31",
+      "client_return_pct": -1.8,
+      "benchmark_id": "BMK-MODERATE",
+      "benchmark_name": "Moderate 50/50 Balanced Index",
+      "benchmark_return_pct": -3.0,
+      "performance_gap_pp": 1.2,
+      "aligned": true
+    },
+    {
+      "period_label": "3M",
+      "period_start": "2026-01-01",
+      "period_end": "2026-03-31",
+      "client_return_pct": 0.5,
+      "benchmark_id": "BMK-MODERATE",
+      "benchmark_name": "Moderate 50/50 Balanced Index",
+      "benchmark_return_pct": -0.2,
+      "performance_gap_pp": 0.7,
+      "aligned": true
+    }
+  ],
+  "advice_history": [
+    {
+      "advice_id": "ADV-001",
+      "recording_date": "2026-01-15",
+      "advice_text": "Maintain defensive positioning in Fixed Income; preserve 10% cash buffer.",
+      "expected_outcome": "Capital preservation during anticipated market correction.",
+      "review_horizon_days": 180,
+      "target_allocation": {
+        "Equity": 50.0,
+        "Fixed Income": 40.0,
+        "Cash": 10.0
+      },
+      "status": "implemented",
+      "follow_through_notes": null
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "NOTE-EDD76D2C",
+      "client_id": "CLIENT-001",
+      "author": "Senior Advisor Jane Doe",
+      "content": "Discussed asset allocation drift and planned rebalancing.",
+      "category": "PORTFOLIO_REVIEW",
+      "created_at": "2026-10-18T11:42:34.695980+00:00"
+    }
+  ],
+  "insights": [],
+  "priority_score": 8.75,
+  "score_components": {
+    "goal_urgency": 10.0,
+    "deviation_persistence": 5.0,
+    "allocation_mismatch": 10.0,
+    "review_recency": 10.0,
+    "evidence_quality": 10.0
+  },
+  "severity": "LOW",
+  "confidence_level": "HIGH",
+  "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+  "data_warnings": [],
+  "suggested_review": "Maintain current monitoring cadence; no immediate advisor intervention required.",
+  "planted_scenario_id": "SCENARIO-01"
+}

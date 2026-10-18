@@ -1,0 +1,1304 @@
+[
+  {
+    "insight_id": "INSIGHT-CLIENT-003-DRIFT",
+    "client_id": "CLIENT-003",
+    "client_name": "Charles Kensington",
+    "type": "ALLOCATION_DRIFT",
+    "headline": "Portfolio Allocation Drift (18.0%)",
+    "what_changed": "Holdings have drifted 18.0% from the documented target model, led by Equity (18.0 pp variance).",
+    "why_it_matters": "Portfolio risk and expected return characteristics may no longer reflect the client's agreed risk profile and investment mandate.",
+    "severity": "HIGH",
+    "score": 77.19,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 69.5,
+      "allocation_mismatch": 100.0,
+      "review_recency": 88.75,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Aggregate Portfolio Drift",
+        "observed_value": 18.0,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.holdings vs target_allocation",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Aggregate portfolio drift is 18.0% (threshold 5.0%). Max deviation in Equity (18.0 pp). Key variances: Equity: actual 68.0% vs target 50.0% (+18.0%), Fixed Income: actual 22.0% vs target 40.0% (-18.0%)."
+      },
+      {
+        "metric_name": "Equity Allocation Variance",
+        "observed_value": 68.0,
+        "baseline_value": 50.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "holdings.Equity",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Actual weight 68.0% vs target 50.0% (variance: +18.0 pp)."
+      },
+      {
+        "metric_name": "Fixed Income Allocation Variance",
+        "observed_value": 22.0,
+        "baseline_value": 40.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "holdings.Fixed Income",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Actual weight 22.0% vs target 40.0% (variance: -18.0 pp)."
+      }
+    ],
+    "metric_values": {
+      "aggregate_drift_pct": 18.0,
+      "max_category_drift_pct": 18.0,
+      "max_drift_category": "Equity"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Inspect the documented target model, evaluate recent market movements, and discuss rebalancing with the client.",
+    "status": "reviewed",
+    "created_at": "2026-10-18T11:43:01.455351+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-003-GOAL",
+    "client_id": "CLIENT-003",
+    "client_name": "Charles Kensington",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Retirement Security Fund",
+    "what_changed": "Portfolio value ($700,000) is behind the modeled path ($918,721) by $218,721 (23.8%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Retirement Security Fund target date (2032-12-31) under current contribution assumptions.",
+    "severity": "CRITICAL",
+    "score": 77.19,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 69.5,
+      "allocation_mismatch": 100.0,
+      "review_recency": 88.75,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 700000.0,
+        "baseline_value": 918720.55,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $450,000, monthly contribution of $3,000, and 6.0% assumed annual return rate over 74 elapsed months of 155 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 23.81,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 218720.55,
+      "shortfall_pct": 23.81,
+      "modeled_target_value": 918720.55,
+      "current_value": 700000.0,
+      "goal_date": "2032-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.455351+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-003-PERF",
+    "client_id": "CLIENT-003",
+    "client_name": "Charles Kensington",
+    "type": "PERSISTENT_UNDERPERFORMANCE",
+    "headline": "Persistent Benchmark Underperformance vs BMK-MODERATE",
+    "what_changed": "Portfolio lagged benchmark by -3.50 pp in the latest period and underperformed in 2 of 2 aligned historical periods.",
+    "why_it_matters": "Multi-period deviation suggests systematic drag or asset selection variances rather than short-term market noise.",
+    "severity": "MEDIUM",
+    "score": 77.19,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 69.5,
+      "allocation_mismatch": 100.0,
+      "review_recency": 88.75,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Latest Period Performance Gap",
+        "observed_value": 1.2,
+        "baseline_value": 4.7,
+        "unit": "%",
+        "period_start": "2025-04-01",
+        "period_end": "2026-03-31",
+        "source_field": "historical_performance[latest]",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Client return was +1.20% vs benchmark return of +4.70%, yielding a performance gap of -3.50 percentage points (underperformed benchmark BMK-MODERATE by -3.50 percentage points)."
+      },
+      {
+        "metric_name": "Deviation Persistence Ratio",
+        "observed_value": "2/2",
+        "baseline_value": "0/N",
+        "unit": "ratio",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "historical_performance",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Client underperformed benchmark in 2 of 2 aligned historical periods (100%). Repeated deviations detected across multiple horizons."
+      }
+    ],
+    "metric_values": {
+      "performance_gap_pp": -3.5,
+      "client_return_pct": 1.2,
+      "benchmark_return_pct": 4.7,
+      "negative_gap_periods": 2,
+      "total_aligned_periods": 2
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review asset selection and expense ratios with the client to evaluate if benchmark alignment remains suitable.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.455351+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-003-REVIEW",
+    "client_id": "CLIENT-003",
+    "client_name": "Charles Kensington",
+    "type": "REVIEW_OVERDUE",
+    "headline": "Periodic Financial Review Overdue (410 Days)",
+    "what_changed": "410 days have elapsed since the last documented client review on 2025-02-14 (standard cadence: 180 days).",
+    "why_it_matters": "Periodic reviews ensure investment objectives, risk tolerance, and life circumstances remain aligned with the mandate.",
+    "severity": "HIGH",
+    "score": 77.19,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 69.5,
+      "allocation_mismatch": 100.0,
+      "review_recency": 88.75,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Days Since Last Formal Review",
+        "observed_value": 410,
+        "baseline_value": 180,
+        "unit": "days",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "client.last_review_date",
+        "source_date": "2025-02-14",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as elapsed days between last review (2025-02-14) and as-of date (2026-03-31)."
+      }
+    ],
+    "metric_values": {
+      "days_since_review": 410,
+      "last_review_date": "2025-02-14"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Verified review log timestamp",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Contact the client to schedule a routine financial review and reconfirm profile and goals.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.455351+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-010-DATA",
+    "client_id": "CLIENT-010",
+    "client_name": "Julia Waverly",
+    "type": "DATA_VERIFICATION_REQUIRED",
+    "headline": "Portfolio Data Verification Required",
+    "what_changed": "Automated integrity checks identified data verification requirements: Holdings sum ($420,000.00) does not reconcile with total portfolio value ($500,000.00, diff 16.0%).",
+    "why_it_matters": "Advisory decisions cannot be reliably grounded without verified, reconciled portfolio records.",
+    "severity": "CRITICAL",
+    "score": 55.05,
+    "score_components": {
+      "goal_urgency": 66.18,
+      "deviation_persistence": 24.2,
+      "allocation_mismatch": 72.12,
+      "review_recency": 35.22,
+      "evidence_quality": 85.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Data Quality Findings",
+        "observed_value": "Holdings sum ($420,000.00) does not reconcile with total portfolio value ($500,000.00, diff 16.0%)",
+        "baseline_value": "Complete, reconciled, fresh snapshot (<90d)",
+        "unit": "status",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.valuation_date, holdings",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Automated data audit detected anomalies or stale records exceeding system thresholds."
+      }
+    ],
+    "metric_values": {
+      "warnings_count": 1,
+      "warnings": [
+        "Holdings sum ($420,000.00) does not reconcile with total portfolio value ($500,000.00, diff 16.0%)"
+      ]
+    },
+    "confidence": "LOW",
+    "confidence_reason": "Conflicting portfolio accounting records",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Verify client records with the custodian or custodian data feed before conducting advisory discussions.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.460357+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-010-DRIFT",
+    "client_id": "CLIENT-010",
+    "client_name": "Julia Waverly",
+    "type": "ALLOCATION_DRIFT",
+    "headline": "Portfolio Allocation Drift (9.5%)",
+    "what_changed": "Holdings have drifted 9.5% from the documented target model, led by Equity (9.5 pp variance).",
+    "why_it_matters": "Portfolio risk and expected return characteristics may no longer reflect the client's agreed risk profile and investment mandate.",
+    "severity": "MEDIUM",
+    "score": 55.05,
+    "score_components": {
+      "goal_urgency": 66.18,
+      "deviation_persistence": 24.2,
+      "allocation_mismatch": 72.12,
+      "review_recency": 35.22,
+      "evidence_quality": 85.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Aggregate Portfolio Drift",
+        "observed_value": 9.52,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.holdings vs target_allocation",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Aggregate portfolio drift is 9.5% (threshold 5.0%). Max deviation in Equity (9.5 pp). Key variances: Cash: actual 7.1% vs target 10.0% (-2.9%), Equity: actual 59.5% vs target 50.0% (+9.5%), Fixed Income: actual 33.3% vs target 40.0% (-6.7%)."
+      },
+      {
+        "metric_name": "Equity Allocation Variance",
+        "observed_value": 59.52,
+        "baseline_value": 50.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "holdings.Equity",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Actual weight 59.52% vs target 50.0% (variance: +9.5 pp)."
+      },
+      {
+        "metric_name": "Fixed Income Allocation Variance",
+        "observed_value": 33.33,
+        "baseline_value": 40.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "holdings.Fixed Income",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Actual weight 33.33% vs target 40.0% (variance: -6.7 pp)."
+      }
+    ],
+    "metric_values": {
+      "aggregate_drift_pct": 9.52,
+      "max_category_drift_pct": 9.52,
+      "max_drift_category": "Equity"
+    },
+    "confidence": "LOW",
+    "confidence_reason": "Conflicting portfolio accounting records",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Inspect the documented target model, evaluate recent market movements, and discuss rebalancing with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.460357+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-010-GOAL",
+    "client_id": "CLIENT-010",
+    "client_name": "Julia Waverly",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Retirement Security Fund",
+    "what_changed": "Portfolio value ($500,000) is behind the modeled path ($585,542) by $85,542 (14.6%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Retirement Security Fund target date (2035-12-31) under current contribution assumptions.",
+    "severity": "HIGH",
+    "score": 55.05,
+    "score_components": {
+      "goal_urgency": 66.18,
+      "deviation_persistence": 24.2,
+      "allocation_mismatch": 72.12,
+      "review_recency": 35.22,
+      "evidence_quality": 85.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 500000.0,
+        "baseline_value": 585542.04,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Modeled path based on initial balance of $350,000, monthly contribution of $1,500, and 6.0% assumed annual return rate over 62 elapsed months of 179 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 14.61,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 85542.04,
+      "shortfall_pct": 14.61,
+      "modeled_target_value": 585542.04,
+      "current_value": 500000.0,
+      "goal_date": "2035-12-31"
+    },
+    "confidence": "LOW",
+    "confidence_reason": "Conflicting portfolio accounting records",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.460357+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-035-GOAL",
+    "client_id": "CLIENT-035",
+    "client_name": "Maya Kensington",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Primary Residence Acquisition",
+    "what_changed": "Portfolio value ($254,000) is behind the modeled path ($425,248) by $171,248 (40.3%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Primary Residence Acquisition target date (2028-12-31) under current contribution assumptions.",
+    "severity": "CRITICAL",
+    "score": 49.8,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 33.44,
+      "allocation_mismatch": 32.35,
+      "review_recency": 56.46,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 254000.0,
+        "baseline_value": 425248.36,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $115,000, monthly contribution of $2,900, and 6.0% assumed annual return rate over 74 elapsed months of 107 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 40.27,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 171248.36,
+      "shortfall_pct": 40.27,
+      "modeled_target_value": 425248.36,
+      "current_value": 254000.0,
+      "goal_date": "2028-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.468347+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-035-REVIEW",
+    "client_id": "CLIENT-035",
+    "client_name": "Maya Kensington",
+    "type": "REVIEW_OVERDUE",
+    "headline": "Periodic Financial Review Overdue (189 Days)",
+    "what_changed": "189 days have elapsed since the last documented client review on 2025-09-23 (standard cadence: 180 days).",
+    "why_it_matters": "Periodic reviews ensure investment objectives, risk tolerance, and life circumstances remain aligned with the mandate.",
+    "severity": "MEDIUM",
+    "score": 49.8,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 33.44,
+      "allocation_mismatch": 32.35,
+      "review_recency": 56.46,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Days Since Last Formal Review",
+        "observed_value": 189,
+        "baseline_value": 180,
+        "unit": "days",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "client.last_review_date",
+        "source_date": "2025-09-23",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as elapsed days between last review (2025-09-23) and as-of date (2026-03-31)."
+      }
+    ],
+    "metric_values": {
+      "days_since_review": 189,
+      "last_review_date": "2025-09-23"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Verified review log timestamp",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Contact the client to schedule a routine financial review and reconfirm profile and goals.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.468347+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-011-DATA",
+    "client_id": "CLIENT-011",
+    "client_name": "Kenneth Prescott",
+    "type": "DATA_VERIFICATION_REQUIRED",
+    "headline": "Portfolio Data Verification Required",
+    "what_changed": "Automated integrity checks identified data verification requirements: Holdings list is empty; Client goal amount is missing or invalid.",
+    "why_it_matters": "Advisory decisions cannot be reliably grounded without verified, reconciled portfolio records.",
+    "severity": "CRITICAL",
+    "score": 48.75,
+    "score_components": {
+      "goal_urgency": 50.0,
+      "deviation_persistence": 40.0,
+      "allocation_mismatch": 60.0,
+      "review_recency": 10.0,
+      "evidence_quality": 85.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Data Quality Findings",
+        "observed_value": "Holdings list is empty; Client goal amount is missing or invalid",
+        "baseline_value": "Complete, reconciled, fresh snapshot (<90d)",
+        "unit": "status",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.valuation_date, holdings",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Automated data audit detected anomalies or stale records exceeding system thresholds."
+      }
+    ],
+    "metric_values": {
+      "warnings_count": 2,
+      "warnings": [
+        "Holdings list is empty",
+        "Client goal amount is missing or invalid"
+      ]
+    },
+    "confidence": "LOW",
+    "confidence_reason": "Empty holdings list; Incomplete goal parameters",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Verify client records with the custodian or custodian data feed before conducting advisory discussions.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.460357+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-182-GOAL",
+    "client_id": "CLIENT-182",
+    "client_name": "Winston Montgomery",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Family Legacy Trust",
+    "what_changed": "Portfolio value ($229,000) is behind the modeled path ($389,191) by $160,191 (41.2%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Family Legacy Trust target date (2045-12-31) under current contribution assumptions.",
+    "severity": "CRITICAL",
+    "score": 47.57,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 33.37,
+      "allocation_mismatch": 33.7,
+      "review_recency": 39.89,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 229000.0,
+        "baseline_value": 389191.15,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $115,000, monthly contribution of $1,600, and 6.0% assumed annual return rate over 98 elapsed months of 335 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 41.16,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 160191.15,
+      "shortfall_pct": 41.16,
+      "modeled_target_value": 389191.15,
+      "current_value": 229000.0,
+      "goal_date": "2045-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.525953+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-129-GOAL",
+    "client_id": "CLIENT-129",
+    "client_name": "Julia Fairfax",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Retirement Security Fund",
+    "what_changed": "Portfolio value ($221,000) is behind the modeled path ($512,249) by $291,249 (56.9%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Retirement Security Fund target date (2038-12-31) under current contribution assumptions.",
+    "severity": "CRITICAL",
+    "score": 46.83,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 30.78,
+      "allocation_mismatch": 10.0,
+      "review_recency": 70.89,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 221000.0,
+        "baseline_value": 512248.81,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $110,000, monthly contribution of $2,300, and 7.5% assumed annual return rate over 98 elapsed months of 251 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 56.86,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 291248.81,
+      "shortfall_pct": 56.86,
+      "modeled_target_value": 512248.81,
+      "current_value": 221000.0,
+      "goal_date": "2038-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.504356+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-129-REVIEW",
+    "client_id": "CLIENT-129",
+    "client_name": "Julia Fairfax",
+    "type": "REVIEW_OVERDUE",
+    "headline": "Periodic Financial Review Overdue (278 Days)",
+    "what_changed": "278 days have elapsed since the last documented client review on 2025-06-26 (standard cadence: 180 days).",
+    "why_it_matters": "Periodic reviews ensure investment objectives, risk tolerance, and life circumstances remain aligned with the mandate.",
+    "severity": "MEDIUM",
+    "score": 46.83,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 30.78,
+      "allocation_mismatch": 10.0,
+      "review_recency": 70.89,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Days Since Last Formal Review",
+        "observed_value": 278,
+        "baseline_value": 180,
+        "unit": "days",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "client.last_review_date",
+        "source_date": "2025-06-26",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as elapsed days between last review (2025-06-26) and as-of date (2026-03-31)."
+      }
+    ],
+    "metric_values": {
+      "days_since_review": 278,
+      "last_review_date": "2025-06-26"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Verified review log timestamp",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Contact the client to schedule a routine financial review and reconfirm profile and goals.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.504356+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-002-GOAL",
+    "client_id": "CLIENT-002",
+    "client_name": "Beatrix Montgomery",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Early Financial Independence",
+    "what_changed": "Portfolio value ($410,000) is behind the modeled path ($724,462) by $314,462 (43.4%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Early Financial Independence target date (2030-12-31) under current contribution assumptions.",
+    "severity": "CRITICAL",
+    "score": 45.89,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 28.4,
+      "allocation_mismatch": 10.0,
+      "review_recency": 68.62,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 410000.0,
+        "baseline_value": 724461.61,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $250,000, monthly contribution of $3,500, and 7.5% assumed annual return rate over 74 elapsed months of 131 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 43.41,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 314461.61,
+      "shortfall_pct": 43.41,
+      "modeled_target_value": 724461.61,
+      "current_value": 410000.0,
+      "goal_date": "2030-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.454328+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-002-REVIEW",
+    "client_id": "CLIENT-002",
+    "client_name": "Beatrix Montgomery",
+    "type": "REVIEW_OVERDUE",
+    "headline": "Periodic Financial Review Overdue (264 Days)",
+    "what_changed": "264 days have elapsed since the last documented client review on 2025-07-10 (standard cadence: 180 days).",
+    "why_it_matters": "Periodic reviews ensure investment objectives, risk tolerance, and life circumstances remain aligned with the mandate.",
+    "severity": "MEDIUM",
+    "score": 45.89,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 28.4,
+      "allocation_mismatch": 10.0,
+      "review_recency": 68.62,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Days Since Last Formal Review",
+        "observed_value": 264,
+        "baseline_value": 180,
+        "unit": "days",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "client.last_review_date",
+        "source_date": "2025-07-10",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as elapsed days between last review (2025-07-10) and as-of date (2026-03-31)."
+      }
+    ],
+    "metric_values": {
+      "days_since_review": 264,
+      "last_review_date": "2025-07-10"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Verified review log timestamp",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Contact the client to schedule a routine financial review and reconfirm profile and goals.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.454328+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-130-GOAL",
+    "client_id": "CLIENT-130",
+    "client_name": "Kenneth Cromwell",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Next-Gen Education Endowment",
+    "what_changed": "Portfolio value ($232,000) is behind the modeled path ($350,000) by $118,000 (33.7%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Next-Gen Education Endowment target date (2032-12-31) under current contribution assumptions.",
+    "severity": "CRITICAL",
+    "score": 45.61,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 31.06,
+      "allocation_mismatch": 10.0,
+      "review_recency": 62.3,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 232000.0,
+        "baseline_value": 350000.0,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $126,000, monthly contribution of $2,800, and 7.5% assumed annual return rate over 86 elapsed months of 167 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 33.71,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 118000.0,
+      "shortfall_pct": 33.71,
+      "modeled_target_value": 350000.0,
+      "current_value": 232000.0,
+      "goal_date": "2032-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.505348+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-130-REVIEW",
+    "client_id": "CLIENT-130",
+    "client_name": "Kenneth Cromwell",
+    "type": "REVIEW_OVERDUE",
+    "headline": "Periodic Financial Review Overdue (225 Days)",
+    "what_changed": "225 days have elapsed since the last documented client review on 2025-08-18 (standard cadence: 180 days).",
+    "why_it_matters": "Periodic reviews ensure investment objectives, risk tolerance, and life circumstances remain aligned with the mandate.",
+    "severity": "MEDIUM",
+    "score": 45.61,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 31.06,
+      "allocation_mismatch": 10.0,
+      "review_recency": 62.3,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Days Since Last Formal Review",
+        "observed_value": 225,
+        "baseline_value": 180,
+        "unit": "days",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "client.last_review_date",
+        "source_date": "2025-08-18",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as elapsed days between last review (2025-08-18) and as-of date (2026-03-31)."
+      }
+    ],
+    "metric_values": {
+      "days_since_review": 225,
+      "last_review_date": "2025-08-18"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Verified review log timestamp",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Contact the client to schedule a routine financial review and reconfirm profile and goals.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.505348+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-104-GOAL",
+    "client_id": "CLIENT-104",
+    "client_name": "Arthur Winslow",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Retirement Security Fund",
+    "what_changed": "Portfolio value ($875,000) is behind the modeled path ($1,132,603) by $257,603 (22.7%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Retirement Security Fund target date (2038-12-31) under current contribution assumptions.",
+    "severity": "CRITICAL",
+    "score": 45.18,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 5.0,
+      "allocation_mismatch": 35.95,
+      "review_recency": 68.3,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 875000.0,
+        "baseline_value": 1132603.21,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $425,000, monthly contribution of $2,700, and 9.0% assumed annual return rate over 86 elapsed months of 239 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 22.74,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 257603.21,
+      "shortfall_pct": 22.74,
+      "modeled_target_value": 1132603.21,
+      "current_value": 875000.0,
+      "goal_date": "2038-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.495351+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-104-REVIEW",
+    "client_id": "CLIENT-104",
+    "client_name": "Arthur Winslow",
+    "type": "REVIEW_OVERDUE",
+    "headline": "Periodic Financial Review Overdue (262 Days)",
+    "what_changed": "262 days have elapsed since the last documented client review on 2025-07-12 (standard cadence: 180 days).",
+    "why_it_matters": "Periodic reviews ensure investment objectives, risk tolerance, and life circumstances remain aligned with the mandate.",
+    "severity": "MEDIUM",
+    "score": 45.18,
+    "score_components": {
+      "goal_urgency": 100.0,
+      "deviation_persistence": 5.0,
+      "allocation_mismatch": 35.95,
+      "review_recency": 68.3,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Days Since Last Formal Review",
+        "observed_value": 262,
+        "baseline_value": 180,
+        "unit": "days",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "client.last_review_date",
+        "source_date": "2025-07-12",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as elapsed days between last review (2025-07-12) and as-of date (2026-03-31)."
+      }
+    ],
+    "metric_values": {
+      "days_since_review": 262,
+      "last_review_date": "2025-07-12"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Verified review log timestamp",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Contact the client to schedule a routine financial review and reconfirm profile and goals.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.495351+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-004-GOAL",
+    "client_id": "CLIENT-004",
+    "client_name": "Diana Hawthorne",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Family Legacy Trust",
+    "what_changed": "Portfolio value ($920,000) is behind the modeled path ($1,111,854) by $191,854 (17.3%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Family Legacy Trust target date (2040-12-31) under current contribution assumptions.",
+    "severity": "HIGH",
+    "score": 44.72,
+    "score_components": {
+      "goal_urgency": 70.03,
+      "deviation_persistence": 74.4,
+      "allocation_mismatch": 10.0,
+      "review_recency": 34.11,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 920000.0,
+        "baseline_value": 1111854.23,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $750,000, monthly contribution of $1,500, and 7.5% assumed annual return rate over 50 elapsed months of 227 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 17.26,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 191854.23,
+      "shortfall_pct": 17.26,
+      "modeled_target_value": 1111854.23,
+      "current_value": 920000.0,
+      "goal_date": "2040-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.455351+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-004-PERF",
+    "client_id": "CLIENT-004",
+    "client_name": "Diana Hawthorne",
+    "type": "PERSISTENT_UNDERPERFORMANCE",
+    "headline": "Persistent Benchmark Underperformance vs BMK-GROWTH",
+    "what_changed": "Portfolio lagged benchmark by -4.20 pp in the latest period and underperformed in 4 of 4 aligned historical periods.",
+    "why_it_matters": "Multi-period deviation suggests systematic drag or asset selection variances rather than short-term market noise.",
+    "severity": "HIGH",
+    "score": 44.72,
+    "score_components": {
+      "goal_urgency": 70.03,
+      "deviation_persistence": 74.4,
+      "allocation_mismatch": 10.0,
+      "review_recency": 34.11,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Latest Period Performance Gap",
+        "observed_value": 2.1,
+        "baseline_value": 6.3,
+        "unit": "%",
+        "period_start": "2025-04-01",
+        "period_end": "2026-03-31",
+        "source_field": "historical_performance[latest]",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Client return was +2.10% vs benchmark return of +6.30%, yielding a performance gap of -4.20 percentage points (underperformed benchmark BMK-GROWTH by -4.20 percentage points)."
+      },
+      {
+        "metric_name": "Deviation Persistence Ratio",
+        "observed_value": "4/4",
+        "baseline_value": "0/N",
+        "unit": "ratio",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "historical_performance",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Client underperformed benchmark in 4 of 4 aligned historical periods (100%). Repeated deviations detected across multiple horizons."
+      }
+    ],
+    "metric_values": {
+      "performance_gap_pp": -4.2,
+      "client_return_pct": 2.1,
+      "benchmark_return_pct": 6.3,
+      "negative_gap_periods": 4,
+      "total_aligned_periods": 4
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review asset selection and expense ratios with the client to evaluate if benchmark alignment remains suitable.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.455351+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-008-DATA",
+    "client_id": "CLIENT-008",
+    "client_name": "Helena Fairfax",
+    "type": "DATA_VERIFICATION_REQUIRED",
+    "headline": "Portfolio Data Verification Required",
+    "what_changed": "Automated integrity checks identified data verification requirements: Portfolio snapshot is stale (141 days old, exceeds 90-day limit).",
+    "why_it_matters": "Advisory decisions cannot be reliably grounded without verified, reconciled portfolio records.",
+    "severity": "CRITICAL",
+    "score": 44.64,
+    "score_components": {
+      "goal_urgency": 61.43,
+      "deviation_persistence": 22.1,
+      "allocation_mismatch": 10.0,
+      "review_recency": 60.03,
+      "evidence_quality": 85.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Data Quality Findings",
+        "observed_value": "Portfolio snapshot is stale (141 days old, exceeds 90-day limit)",
+        "baseline_value": "Complete, reconciled, fresh snapshot (<90d)",
+        "unit": "status",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.valuation_date, holdings",
+        "source_date": "2025-11-10",
+        "confidence": "LOW",
+        "calculation_explanation": "Automated data audit detected anomalies or stale records exceeding system thresholds."
+      }
+    ],
+    "metric_values": {
+      "warnings_count": 1,
+      "warnings": [
+        "Portfolio snapshot is stale (141 days old, exceeds 90-day limit)"
+      ]
+    },
+    "confidence": "LOW",
+    "confidence_reason": "Stale valuation data (141 days)",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Verify client records with the custodian or custodian data feed before conducting advisory discussions.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.459281+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-008-GOAL",
+    "client_id": "CLIENT-008",
+    "client_name": "Helena Fairfax",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Retirement Security Fund",
+    "what_changed": "Portfolio value ($640,000) is behind the modeled path ($721,779) by $81,779 (11.3%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Retirement Security Fund target date (2033-12-31) under current contribution assumptions.",
+    "severity": "HIGH",
+    "score": 44.64,
+    "score_components": {
+      "goal_urgency": 61.43,
+      "deviation_persistence": 22.1,
+      "allocation_mismatch": 10.0,
+      "review_recency": 60.03,
+      "evidence_quality": 85.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 640000.0,
+        "baseline_value": 721779.28,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Modeled path based on initial balance of $450,000, monthly contribution of $1,500, and 6.0% assumed annual return rate over 62 elapsed months of 155 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 11.33,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "LOW",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 81779.28,
+      "shortfall_pct": 11.33,
+      "modeled_target_value": 721779.28,
+      "current_value": 640000.0,
+      "goal_date": "2033-12-31"
+    },
+    "confidence": "LOW",
+    "confidence_reason": "Stale valuation data (141 days)",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.459281+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-008-REVIEW",
+    "client_id": "CLIENT-008",
+    "client_name": "Helena Fairfax",
+    "type": "REVIEW_OVERDUE",
+    "headline": "Periodic Financial Review Overdue (211 Days)",
+    "what_changed": "211 days have elapsed since the last documented client review on 2025-09-01 (standard cadence: 180 days).",
+    "why_it_matters": "Periodic reviews ensure investment objectives, risk tolerance, and life circumstances remain aligned with the mandate.",
+    "severity": "MEDIUM",
+    "score": 44.64,
+    "score_components": {
+      "goal_urgency": 61.43,
+      "deviation_persistence": 22.1,
+      "allocation_mismatch": 10.0,
+      "review_recency": 60.03,
+      "evidence_quality": 85.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Days Since Last Formal Review",
+        "observed_value": 211,
+        "baseline_value": 180,
+        "unit": "days",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "client.last_review_date",
+        "source_date": "2025-09-01",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as elapsed days between last review (2025-09-01) and as-of date (2026-03-31)."
+      }
+    ],
+    "metric_values": {
+      "days_since_review": 211,
+      "last_review_date": "2025-09-01"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Verified review log timestamp",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Contact the client to schedule a routine financial review and reconfirm profile and goals.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.459281+00:00"
+  },
+  {
+    "insight_id": "INSIGHT-CLIENT-179-GOAL",
+    "client_id": "CLIENT-179",
+    "client_name": "Theresa O'Connor",
+    "type": "GOAL_AT_RISK",
+    "headline": "Goal Trajectory Shortfall: Family Legacy Trust",
+    "what_changed": "Portfolio value ($1,415,000) is behind the modeled path ($1,731,727) by $316,727 (18.3%).",
+    "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Family Legacy Trust target date (2045-12-31) under current contribution assumptions.",
+    "severity": "HIGH",
+    "score": 43.45,
+    "score_components": {
+      "goal_urgency": 71.52,
+      "deviation_persistence": 31.48,
+      "allocation_mismatch": 36.46,
+      "review_recency": 59.38,
+      "evidence_quality": 10.0
+    },
+    "evidence": [
+      {
+        "metric_name": "Modeled Goal Target vs Current Value",
+        "observed_value": 1415000.0,
+        "baseline_value": 1731727.32,
+        "unit": "USD",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "portfolio.total_value vs modeled_target_path",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Modeled path based on initial balance of $971,000, monthly contribution of $2,400, and 9.0% assumed annual return rate over 62 elapsed months of 299 total months."
+      },
+      {
+        "metric_name": "Goal Shortfall Percentage",
+        "observed_value": 18.29,
+        "baseline_value": 0.0,
+        "unit": "%",
+        "period_start": null,
+        "period_end": null,
+        "source_field": "shortfall_pct",
+        "source_date": "2026-03-31",
+        "confidence": "HIGH",
+        "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+      }
+    ],
+    "metric_values": {
+      "shortfall_amount": 316727.32,
+      "shortfall_pct": 18.29,
+      "modeled_target_value": 1731727.32,
+      "current_value": 1415000.0,
+      "goal_date": "2045-12-31"
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "data_as_of": "2026-03-31",
+    "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+    "status": "active",
+    "created_at": "2026-10-18T11:43:01.525354+00:00"
+  }
+]

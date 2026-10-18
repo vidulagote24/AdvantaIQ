@@ -1,0 +1,179 @@
+{
+  "client_id": "CLIENT-003",
+  "client_name": "Charles Kensington",
+  "brief_date": "2026-03-31",
+  "draft_notice": "DRAFT FOR ADVISOR REVIEW \u2014 Decision support only. Not an autonomous recommendation.",
+  "executive_summary": "Client Charles Kensington (CLIENT-003) has an overall priority score of 77.2/100 (CRITICAL). Key drivers: Critical goal shortfall of 23.8% ($218,721) vs modeled path; Persistent benchmark underperformance (-3.50 pp gap, negative in 2/2 periods); Significant portfolio drift of 18.0% (max: Equity 18.0 pp).",
+  "goal_summary": {
+    "goal_name": "Retirement Security Fund",
+    "goal_amount": 1400000.0,
+    "goal_date": "2032-12-31",
+    "current_value": 700000.0,
+    "progress_pct": 50.0,
+    "modeled_target_value": 918720.55,
+    "shortfall_amount": 218720.55,
+    "shortfall_pct": 23.81,
+    "trajectory_status": "CRITICAL_SHORTFALL",
+    "assumptions": "Modeled path based on initial balance of $450,000, monthly contribution of $3,000, and 6.0% assumed annual return rate over 74 elapsed months of 155 total months."
+  },
+  "performance_summary": {
+    "status": "VALID",
+    "client_return_pct": 1.2,
+    "benchmark_id": "BMK-MODERATE",
+    "benchmark_return_pct": 4.7,
+    "performance_gap_pp": -3.5,
+    "period_start": "2025-04-01",
+    "period_end": "2026-03-31",
+    "explanation": "Client return was +1.20% vs benchmark return of +4.70%, yielding a performance gap of -3.50 percentage points (underperformed benchmark BMK-MODERATE by -3.50 percentage points)."
+  },
+  "allocation_summary": {
+    "has_target_allocation": true,
+    "aggregate_drift_pct": 18.0,
+    "max_category_drift_pct": 18.0,
+    "max_drift_category": "Equity",
+    "exceeds_threshold": true,
+    "category_breakdown": {
+      "Cash": {
+        "target_pct": 10.0,
+        "actual_pct": 10.0,
+        "drift_pp": 0.0,
+        "abs_drift": 0.0,
+        "status": "BALANCED"
+      },
+      "Equity": {
+        "target_pct": 50.0,
+        "actual_pct": 68.0,
+        "drift_pp": 18.0,
+        "abs_drift": 18.0,
+        "status": "OVERWEIGHT"
+      },
+      "Fixed Income": {
+        "target_pct": 40.0,
+        "actual_pct": 22.0,
+        "drift_pp": -18.0,
+        "abs_drift": 18.0,
+        "status": "UNDERWEIGHT"
+      }
+    },
+    "explanation": "Aggregate portfolio drift is 18.0% (threshold 5.0%). Max deviation in Equity (18.0 pp). Key variances: Equity: actual 68.0% vs target 50.0% (+18.0%), Fixed Income: actual 22.0% vs target 40.0% (-18.0%)."
+  },
+  "advice_follow_through": {
+    "total_records": 1,
+    "latest_advice_date": "2025-02-14",
+    "latest_advice_text": "Rebalance portfolio back to 50% Equity, 40% Fixed Income target model.",
+    "follow_through_status": "NOT_FOLLOWED",
+    "evaluation_notes": "Advised target allocation (2025-02-14) not reflected in current holdings."
+  },
+  "data_freshness_and_confidence": {
+    "valuation_date": "2026-03-31",
+    "data_as_of": "2026-03-31",
+    "confidence_level": "HIGH",
+    "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+    "warnings": [],
+    "requires_verification": false
+  },
+  "suggested_review_questions": [
+    "Given the modeled $218,721 goal shortfall, can the client increase monthly contributions or extend the horizon?",
+    "Does the current 18.0% allocation drift reflect deliberate tactical positioning or unattended market drift?",
+    "Does the client understand recent benchmark deviation factors and do their risk expectations remain aligned?",
+    "Would the client benefit from reconfirming their target asset allocation and risk profile?"
+  ],
+  "evidence": [
+    {
+      "metric_name": "Modeled Goal Target vs Current Value",
+      "observed_value": 700000.0,
+      "baseline_value": 918720.55,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": null,
+      "source_field": "portfolio.total_value vs modeled_target_path",
+      "source_date": "2026-03-31",
+      "confidence": "HIGH",
+      "calculation_explanation": "Modeled path based on initial balance of $450,000, monthly contribution of $3,000, and 6.0% assumed annual return rate over 74 elapsed months of 155 total months."
+    },
+    {
+      "metric_name": "Goal Shortfall Percentage",
+      "observed_value": 23.81,
+      "baseline_value": 0.0,
+      "unit": "%",
+      "period_start": null,
+      "period_end": null,
+      "source_field": "shortfall_pct",
+      "source_date": "2026-03-31",
+      "confidence": "HIGH",
+      "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+    },
+    {
+      "metric_name": "Aggregate Portfolio Drift",
+      "observed_value": 18.0,
+      "baseline_value": 0.0,
+      "unit": "%",
+      "period_start": null,
+      "period_end": null,
+      "source_field": "portfolio.holdings vs target_allocation",
+      "source_date": "2026-03-31",
+      "confidence": "HIGH",
+      "calculation_explanation": "Aggregate portfolio drift is 18.0% (threshold 5.0%). Max deviation in Equity (18.0 pp). Key variances: Equity: actual 68.0% vs target 50.0% (+18.0%), Fixed Income: actual 22.0% vs target 40.0% (-18.0%)."
+    },
+    {
+      "metric_name": "Equity Allocation Variance",
+      "observed_value": 68.0,
+      "baseline_value": 50.0,
+      "unit": "%",
+      "period_start": null,
+      "period_end": null,
+      "source_field": "holdings.Equity",
+      "source_date": "2026-03-31",
+      "confidence": "HIGH",
+      "calculation_explanation": "Actual weight 68.0% vs target 50.0% (variance: +18.0 pp)."
+    },
+    {
+      "metric_name": "Fixed Income Allocation Variance",
+      "observed_value": 22.0,
+      "baseline_value": 40.0,
+      "unit": "%",
+      "period_start": null,
+      "period_end": null,
+      "source_field": "holdings.Fixed Income",
+      "source_date": "2026-03-31",
+      "confidence": "HIGH",
+      "calculation_explanation": "Actual weight 22.0% vs target 40.0% (variance: -18.0 pp)."
+    },
+    {
+      "metric_name": "Latest Period Performance Gap",
+      "observed_value": 1.2,
+      "baseline_value": 4.7,
+      "unit": "%",
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31",
+      "source_field": "historical_performance[latest]",
+      "source_date": "2026-03-31",
+      "confidence": "HIGH",
+      "calculation_explanation": "Client return was +1.20% vs benchmark return of +4.70%, yielding a performance gap of -3.50 percentage points (underperformed benchmark BMK-MODERATE by -3.50 percentage points)."
+    },
+    {
+      "metric_name": "Deviation Persistence Ratio",
+      "observed_value": "2/2",
+      "baseline_value": "0/N",
+      "unit": "ratio",
+      "period_start": null,
+      "period_end": null,
+      "source_field": "historical_performance",
+      "source_date": "2026-03-31",
+      "confidence": "HIGH",
+      "calculation_explanation": "Client underperformed benchmark in 2 of 2 aligned historical periods (100%). Repeated deviations detected across multiple horizons."
+    },
+    {
+      "metric_name": "Days Since Last Formal Review",
+      "observed_value": 410,
+      "baseline_value": 180,
+      "unit": "days",
+      "period_start": null,
+      "period_end": null,
+      "source_field": "client.last_review_date",
+      "source_date": "2025-02-14",
+      "confidence": "HIGH",
+      "calculation_explanation": "Calculated as elapsed days between last review (2025-02-14) and as-of date (2026-03-31)."
+    }
+  ]
+}

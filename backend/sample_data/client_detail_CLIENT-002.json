@@ -1,0 +1,247 @@
+{
+  "client_id": "CLIENT-002",
+  "display_name": "Beatrix Montgomery",
+  "risk_profile": "GROWTH",
+  "data_as_of": "2026-03-31",
+  "last_review_date": "2025-07-10",
+  "days_since_review": 264,
+  "portfolio": {
+    "valuation_date": "2026-03-31",
+    "total_value": 410000.0,
+    "cash_balance": 32800.0,
+    "holdings": [
+      {
+        "asset_id": "EQ-05",
+        "asset_name": "Dividend Aristocrats Equity Fund",
+        "category": "Equity",
+        "market_value": 148694.27,
+        "allocation_pct": 36.27,
+        "risk_tags": [
+          "EQUITY",
+          "INCOME"
+        ]
+      },
+      {
+        "asset_id": "EQ-01",
+        "asset_name": "Global Large-Cap Equity Fund",
+        "category": "Equity",
+        "market_value": 138305.73,
+        "allocation_pct": 33.73,
+        "risk_tags": [
+          "EQUITY",
+          "CORE_INDEX"
+        ]
+      },
+      {
+        "asset_id": "FI-01",
+        "asset_name": "Core US Aggregate Bond Fund",
+        "category": "Fixed Income",
+        "market_value": 37770.26,
+        "allocation_pct": 9.21,
+        "risk_tags": [
+          "FIXED_INCOME",
+          "INVESTMENT_GRADE"
+        ]
+      },
+      {
+        "asset_id": "FI-05",
+        "asset_name": "Municipal Tax-Exempt Bond Fund",
+        "category": "Fixed Income",
+        "market_value": 52429.74,
+        "allocation_pct": 12.79,
+        "risk_tags": [
+          "FIXED_INCOME",
+          "TAX_ADVANTAGED"
+        ]
+      },
+      {
+        "asset_id": "CS-01",
+        "asset_name": "Treasury Money Market Fund",
+        "category": "Cash",
+        "market_value": 32800.0,
+        "allocation_pct": 8.0,
+        "risk_tags": [
+          "CASH_EQUIVALENT",
+          "LOW_RISK"
+        ]
+      }
+    ],
+    "target_allocation": {
+      "Equity": 70.0,
+      "Fixed Income": 22.0,
+      "Cash": 8.0
+    },
+    "is_stale": false,
+    "data_warnings": []
+  },
+  "goal": {
+    "goal_name": "Early Financial Independence",
+    "goal_amount": 1500000.0,
+    "goal_date": "2030-12-31",
+    "current_value": 410000.0,
+    "progress_pct": 27.33,
+    "modeled_target_value": 724461.61,
+    "trajectory_status": "CRITICAL_SHORTFALL",
+    "shortfall_amount": 314461.61,
+    "shortfall_pct": 43.41,
+    "monthly_contribution_assumed": 3500.0,
+    "assumed_return_rate_pct": 7.5,
+    "assumptions_description": "Modeled path based on initial balance of $250,000, monthly contribution of $3,500, and 7.5% assumed annual return rate over 74 elapsed months of 131 total months."
+  },
+  "historical_performance": [
+    {
+      "period_label": "1Y",
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31",
+      "client_return_pct": 5.1,
+      "benchmark_id": "BMK-GROWTH",
+      "benchmark_name": "Growth 70/30 Blend Index",
+      "benchmark_return_pct": 6.3,
+      "performance_gap_pp": -1.2,
+      "aligned": true
+    },
+    {
+      "period_label": "6M",
+      "period_start": "2025-10-01",
+      "period_end": "2026-03-31",
+      "client_return_pct": 3.0,
+      "benchmark_id": "BMK-GROWTH",
+      "benchmark_name": "Growth 70/30 Blend Index",
+      "benchmark_return_pct": 3.5,
+      "performance_gap_pp": -0.5,
+      "aligned": true
+    }
+  ],
+  "advice_history": [
+    {
+      "advice_id": "ADV-002",
+      "recording_date": "2025-07-10",
+      "advice_text": "Increase monthly deposits to $3,500 to maintain required accumulation trajectory.",
+      "expected_outcome": "Close modeled shortfall before 2030 target date.",
+      "review_horizon_days": 180,
+      "target_allocation": {
+        "Equity": 70.0,
+        "Fixed Income": 22.0,
+        "Cash": 8.0
+      },
+      "status": "pending",
+      "follow_through_notes": null
+    }
+  ],
+  "notes": [],
+  "insights": [
+    {
+      "insight_id": "INSIGHT-CLIENT-002-GOAL",
+      "client_id": "CLIENT-002",
+      "client_name": "Beatrix Montgomery",
+      "type": "GOAL_AT_RISK",
+      "headline": "Goal Trajectory Shortfall: Early Financial Independence",
+      "what_changed": "Portfolio value ($410,000) is behind the modeled path ($724,462) by $314,462 (43.4%).",
+      "why_it_matters": "Current capital accumulation trajectory indicates potential difficulty meeting the Early Financial Independence target date (2030-12-31) under current contribution assumptions.",
+      "severity": "CRITICAL",
+      "score": 45.89,
+      "score_components": {
+        "goal_urgency": 100.0,
+        "deviation_persistence": 28.4,
+        "allocation_mismatch": 10.0,
+        "review_recency": 68.62,
+        "evidence_quality": 10.0
+      },
+      "evidence": [
+        {
+          "metric_name": "Modeled Goal Target vs Current Value",
+          "observed_value": 410000.0,
+          "baseline_value": 724461.61,
+          "unit": "USD",
+          "period_start": null,
+          "period_end": null,
+          "source_field": "portfolio.total_value vs modeled_target_path",
+          "source_date": "2026-03-31",
+          "confidence": "HIGH",
+          "calculation_explanation": "Modeled path based on initial balance of $250,000, monthly contribution of $3,500, and 7.5% assumed annual return rate over 74 elapsed months of 131 total months."
+        },
+        {
+          "metric_name": "Goal Shortfall Percentage",
+          "observed_value": 43.41,
+          "baseline_value": 0.0,
+          "unit": "%",
+          "period_start": null,
+          "period_end": null,
+          "source_field": "shortfall_pct",
+          "source_date": "2026-03-31",
+          "confidence": "HIGH",
+          "calculation_explanation": "Calculated as (modeled_target - current_value) / modeled_target * 100."
+        }
+      ],
+      "metric_values": {
+        "shortfall_amount": 314461.61,
+        "shortfall_pct": 43.41,
+        "modeled_target_value": 724461.61,
+        "current_value": 410000.0,
+        "goal_date": "2030-12-31"
+      },
+      "confidence": "HIGH",
+      "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+      "data_as_of": "2026-03-31",
+      "suggested_review": "Review contribution rates, target retirement/milestone date, and modeled return assumptions with the client.",
+      "status": "active",
+      "created_at": "2026-10-18T11:43:01.446273+00:00"
+    },
+    {
+      "insight_id": "INSIGHT-CLIENT-002-REVIEW",
+      "client_id": "CLIENT-002",
+      "client_name": "Beatrix Montgomery",
+      "type": "REVIEW_OVERDUE",
+      "headline": "Periodic Financial Review Overdue (264 Days)",
+      "what_changed": "264 days have elapsed since the last documented client review on 2025-07-10 (standard cadence: 180 days).",
+      "why_it_matters": "Periodic reviews ensure investment objectives, risk tolerance, and life circumstances remain aligned with the mandate.",
+      "severity": "MEDIUM",
+      "score": 45.89,
+      "score_components": {
+        "goal_urgency": 100.0,
+        "deviation_persistence": 28.4,
+        "allocation_mismatch": 10.0,
+        "review_recency": 68.62,
+        "evidence_quality": 10.0
+      },
+      "evidence": [
+        {
+          "metric_name": "Days Since Last Formal Review",
+          "observed_value": 264,
+          "baseline_value": 180,
+          "unit": "days",
+          "period_start": null,
+          "period_end": null,
+          "source_field": "client.last_review_date",
+          "source_date": "2025-07-10",
+          "confidence": "HIGH",
+          "calculation_explanation": "Calculated as elapsed days between last review (2025-07-10) and as-of date (2026-03-31)."
+        }
+      ],
+      "metric_values": {
+        "days_since_review": 264,
+        "last_review_date": "2025-07-10"
+      },
+      "confidence": "HIGH",
+      "confidence_reason": "Verified review log timestamp",
+      "data_as_of": "2026-03-31",
+      "suggested_review": "Contact the client to schedule a routine financial review and reconfirm profile and goals.",
+      "status": "active",
+      "created_at": "2026-10-18T11:43:01.446273+00:00"
+    }
+  ],
+  "priority_score": 45.89,
+  "score_components": {
+    "goal_urgency": 100.0,
+    "deviation_persistence": 28.4,
+    "allocation_mismatch": 10.0,
+    "review_recency": 68.62,
+    "evidence_quality": 10.0
+  },
+  "severity": "HIGH",
+  "confidence_level": "HIGH",
+  "confidence_reason": "Complete, fresh, and fully reconciled portfolio data",
+  "data_warnings": [],
+  "suggested_review": "Review goal trajectory assumptions, projected shortfall, and timeline flexibility with the client.",
+  "planted_scenario_id": "SCENARIO-02"
+}
