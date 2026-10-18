@@ -1,0 +1,392 @@
+{
+  "totalCount": 6,
+  "criticalCount": 1,
+  "highCount": 1,
+  "mediumCount": 1,
+  "lowCount": 3,
+  "items": [
+    {
+      "id": "ins_cli_001",
+      "clientId": "cli_001",
+      "clientName": "Eleanor Vance",
+      "totalAum": 2850000.0,
+      "cashBalance": 340000.0,
+      "riskTolerance": "moderate",
+      "urgencyScore": 80,
+      "urgencyLevel": "critical",
+      "primaryCategory": "Allocation Drift",
+      "summary": "Allocation drift of 16.1% detected; portfolio rebalancing required.",
+      "detectedAt": "2026-10-18T00:00:00+00:00",
+      "daysSinceLastReview": 411,
+      "isReviewOverdue": true,
+      "dataFreshnessDays": 1,
+      "scoreDrivers": [
+        {
+          "category": "Allocation Drift",
+          "pointsAwarded": 30,
+          "maxPoints": 30,
+          "rationale": "Severe allocation drift of 16.1% exceeds risk tolerance parameters"
+        },
+        {
+          "category": "Goal Milestones",
+          "pointsAwarded": 22,
+          "maxPoints": 30,
+          "rationale": "Goal 'Capital Preservation & Estate Legacy' underfunded with upcoming milestone in 74 days"
+        },
+        {
+          "category": "Fiduciary Review",
+          "pointsAwarded": 20,
+          "maxPoints": 20,
+          "rationale": "Mandatory fiduciary review critically overdue by 231 days (Cadence: 180d)"
+        },
+        {
+          "category": "Cash Drag",
+          "pointsAwarded": 8,
+          "maxPoints": 10,
+          "rationale": "Substantial uninvested cash reserves: $340,000 (11.9%) requires deployment strategy"
+        },
+        {
+          "category": "Data Freshness",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Custodian feed healthy and synchronised"
+        }
+      ],
+      "evidence": [
+        {
+          "metricName": "Asset Allocation Drift",
+          "observedValue": "Equities: 64.2% (Target 50.0%), Drift: +14.2%",
+          "threshold": "\u00b15.0% tolerance band",
+          "triggerReason": "Severe allocation drift of 16.1% exceeds risk tolerance parameters"
+        },
+        {
+          "metricName": "Goal Funding Status",
+          "observedValue": "$2,850,000 of $3,000,000 (95%), Deadline: 2027-01-01",
+          "threshold": "100% on-track target funding",
+          "triggerReason": "Goal 'Capital Preservation & Estate Legacy' underfunded with upcoming milestone in 74 days"
+        },
+        {
+          "metricName": "Advisor Review Cadence",
+          "observedValue": "411 days since last meeting (Cadence: 180 days)",
+          "threshold": "180 days maximum review interval",
+          "triggerReason": "Mandatory fiduciary review critically overdue by 231 days (Cadence: 180d)"
+        },
+        {
+          "metricName": "Uninvested Cash Drag",
+          "observedValue": "$340,000 (11.9% of AUM)",
+          "threshold": "Target: 10.0%",
+          "triggerReason": "Substantial uninvested cash reserves: $340,000 (11.9%) requires deployment strategy"
+        }
+      ],
+      "suggestedAction": "Review portfolio drift analysis and prepare tax-loss harvested rebalance proposal."
+    },
+    {
+      "id": "ins_cli_003",
+      "clientId": "cli_003",
+      "clientName": "Sofia Rodriguez",
+      "totalAum": 890000.0,
+      "cashBalance": 210000.0,
+      "riskTolerance": "growth",
+      "urgencyScore": 60,
+      "urgencyLevel": "high",
+      "primaryCategory": "Allocation Drift",
+      "summary": "Allocation drift of 18.0% detected; portfolio rebalancing required.",
+      "detectedAt": "2026-10-18T00:00:00+00:00",
+      "daysSinceLastReview": 120,
+      "isReviewOverdue": false,
+      "dataFreshnessDays": 18,
+      "scoreDrivers": [
+        {
+          "category": "Allocation Drift",
+          "pointsAwarded": 30,
+          "maxPoints": 30,
+          "rationale": "Severe allocation drift of 18.0% exceeds risk tolerance parameters"
+        },
+        {
+          "category": "Goal Milestones",
+          "pointsAwarded": 0,
+          "maxPoints": 30,
+          "rationale": "Goal 'Business Expansion Reserve' is on track (on_track)"
+        },
+        {
+          "category": "Fiduciary Review",
+          "pointsAwarded": 10,
+          "maxPoints": 20,
+          "rationale": "Review schedule due today (Cadence: 120d)"
+        },
+        {
+          "category": "Cash Drag",
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "rationale": "Excessive uninvested cash: 23.6% ($210,000) creating significant drag"
+        },
+        {
+          "category": "Data Freshness",
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "rationale": "Data feed stale; custodian sync delayed by 18 days"
+        }
+      ],
+      "evidence": [
+        {
+          "metricName": "Asset Allocation Drift",
+          "observedValue": "Equities: 52.0% (Target 70.0%), Drift: -18.0%",
+          "threshold": "\u00b15.0% tolerance band",
+          "triggerReason": "Severe allocation drift of 18.0% exceeds risk tolerance parameters"
+        },
+        {
+          "metricName": "Advisor Review Cadence",
+          "observedValue": "120 days since last meeting (Cadence: 120 days)",
+          "threshold": "120 days maximum review interval",
+          "triggerReason": "Review schedule due today (Cadence: 120d)"
+        },
+        {
+          "metricName": "Uninvested Cash Drag",
+          "observedValue": "$210,000 (23.6% of AUM)",
+          "threshold": "Target: 10.0%",
+          "triggerReason": "Excessive uninvested cash: 23.6% ($210,000) creating significant drag"
+        },
+        {
+          "metricName": "Custodian Data Freshness",
+          "observedValue": "18 days since sync (Status: stale)",
+          "threshold": "Sync within 2 days",
+          "triggerReason": "Data feed stale; custodian sync delayed by 18 days"
+        }
+      ],
+      "suggestedAction": "Review portfolio drift analysis and prepare tax-loss harvested rebalance proposal."
+    },
+    {
+      "id": "ins_cli_002",
+      "clientId": "cli_002",
+      "clientName": "Marcus Chen",
+      "totalAum": 1420000.0,
+      "cashBalance": 28000.0,
+      "riskTolerance": "aggressive",
+      "urgencyScore": 45,
+      "urgencyLevel": "medium",
+      "primaryCategory": "Goal Milestones",
+      "summary": "Goal 'Down Payment for Secondary Residence' is critical with 58 days remaining.",
+      "detectedAt": "2026-10-18T00:00:00+00:00",
+      "daysSinceLastReview": 67,
+      "isReviewOverdue": false,
+      "dataFreshnessDays": 2,
+      "scoreDrivers": [
+        {
+          "category": "Allocation Drift",
+          "pointsAwarded": 15,
+          "maxPoints": 30,
+          "rationale": "Moderate allocation drift of 6.5% beyond standard 5% tolerance"
+        },
+        {
+          "category": "Goal Milestones",
+          "pointsAwarded": 30,
+          "maxPoints": 30,
+          "rationale": "Critical goal 'Down Payment for Secondary Residence' is underfunded with only 58 days remaining"
+        },
+        {
+          "category": "Fiduciary Review",
+          "pointsAwarded": 0,
+          "maxPoints": 20,
+          "rationale": "Review status current (last conducted 67 days ago)"
+        },
+        {
+          "category": "Cash Drag",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Cash balance ($28,000, 2.0%) within operational policy"
+        },
+        {
+          "category": "Data Freshness",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Custodian feed healthy and synchronised"
+        }
+      ],
+      "evidence": [
+        {
+          "metricName": "Asset Allocation Drift",
+          "observedValue": "Equities: 86.5% (Target 80.0%), Drift: +6.5%",
+          "threshold": "\u00b15.0% tolerance band",
+          "triggerReason": "Moderate allocation drift of 6.5% beyond standard 5% tolerance"
+        },
+        {
+          "metricName": "Goal Funding Status",
+          "observedValue": "$390,000 of $450,000 (87%), Deadline: 2026-12-15",
+          "threshold": "100% on-track target funding",
+          "triggerReason": "Critical goal 'Down Payment for Secondary Residence' is underfunded with only 58 days remaining"
+        }
+      ],
+      "suggestedAction": "Conduct goal feasibility simulation and discuss contribution adjustment."
+    },
+    {
+      "id": "ins_cli_006",
+      "clientId": "cli_006",
+      "clientName": "Robert Kowalski",
+      "totalAum": 1150000.0,
+      "cashBalance": 85000.0,
+      "riskTolerance": "conservative",
+      "urgencyScore": 25,
+      "urgencyLevel": "low",
+      "primaryCategory": "Allocation Drift",
+      "summary": "Allocation drift of 6.5% detected; portfolio rebalancing required.",
+      "detectedAt": "2026-10-18T00:00:00+00:00",
+      "daysSinceLastReview": 161,
+      "isReviewOverdue": true,
+      "dataFreshnessDays": 3,
+      "scoreDrivers": [
+        {
+          "category": "Allocation Drift",
+          "pointsAwarded": 15,
+          "maxPoints": 30,
+          "rationale": "Moderate allocation drift of 6.5% beyond standard 5% tolerance"
+        },
+        {
+          "category": "Goal Milestones",
+          "pointsAwarded": 0,
+          "maxPoints": 30,
+          "rationale": "Goal 'Annual RMD Distribution Strategy' is on track (achieved)"
+        },
+        {
+          "category": "Fiduciary Review",
+          "pointsAwarded": 10,
+          "maxPoints": 20,
+          "rationale": "Client review overdue by 41 days past cadence"
+        },
+        {
+          "category": "Cash Drag",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Cash balance ($85,000, 7.4%) within operational policy"
+        },
+        {
+          "category": "Data Freshness",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Custodian feed healthy and synchronised"
+        }
+      ],
+      "evidence": [
+        {
+          "metricName": "Asset Allocation Drift",
+          "observedValue": "Equities: 36.5% (Target 30.0%), Drift: +6.5%",
+          "threshold": "\u00b15.0% tolerance band",
+          "triggerReason": "Moderate allocation drift of 6.5% beyond standard 5% tolerance"
+        },
+        {
+          "metricName": "Advisor Review Cadence",
+          "observedValue": "161 days since last meeting (Cadence: 120 days)",
+          "threshold": "120 days maximum review interval",
+          "triggerReason": "Client review overdue by 41 days past cadence"
+        }
+      ],
+      "suggestedAction": "Review portfolio drift analysis and prepare tax-loss harvested rebalance proposal."
+    },
+    {
+      "id": "ins_cli_004",
+      "clientId": "cli_004",
+      "clientName": "David & Sarah Miller",
+      "totalAum": 3650000.0,
+      "cashBalance": 95000.0,
+      "riskTolerance": "moderate",
+      "urgencyScore": 15,
+      "urgencyLevel": "low",
+      "primaryCategory": "Allocation Drift",
+      "summary": "Allocation drift of 5.5% detected; portfolio rebalancing required.",
+      "detectedAt": "2026-10-18T00:00:00+00:00",
+      "daysSinceLastReview": 100,
+      "isReviewOverdue": false,
+      "dataFreshnessDays": 1,
+      "scoreDrivers": [
+        {
+          "category": "Allocation Drift",
+          "pointsAwarded": 15,
+          "maxPoints": 30,
+          "rationale": "Moderate allocation drift of 5.5% beyond standard 5% tolerance"
+        },
+        {
+          "category": "Goal Milestones",
+          "pointsAwarded": 0,
+          "maxPoints": 30,
+          "rationale": "Goal 'College Tuition for Twins' is on track (on_track)"
+        },
+        {
+          "category": "Fiduciary Review",
+          "pointsAwarded": 0,
+          "maxPoints": 20,
+          "rationale": "Review status current (last conducted 100 days ago)"
+        },
+        {
+          "category": "Cash Drag",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Cash balance ($95,000, 2.6%) within operational policy"
+        },
+        {
+          "category": "Data Freshness",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Custodian feed healthy and synchronised"
+        }
+      ],
+      "evidence": [
+        {
+          "metricName": "Asset Allocation Drift",
+          "observedValue": "Equities: 65.5% (Target 60.0%), Drift: +5.5%",
+          "threshold": "\u00b15.0% tolerance band",
+          "triggerReason": "Moderate allocation drift of 5.5% beyond standard 5% tolerance"
+        }
+      ],
+      "suggestedAction": "Review portfolio drift analysis and prepare tax-loss harvested rebalance proposal."
+    },
+    {
+      "id": "ins_cli_005",
+      "clientId": "cli_005",
+      "clientName": "Amina Patel",
+      "totalAum": 310000.0,
+      "cashBalance": 18000.0,
+      "riskTolerance": "aggressive",
+      "urgencyScore": 0,
+      "urgencyLevel": "low",
+      "primaryCategory": "Allocation Drift",
+      "summary": "Allocation drift of 0.8% detected; portfolio rebalancing required.",
+      "detectedAt": "2026-10-18T00:00:00+00:00",
+      "daysSinceLastReview": 33,
+      "isReviewOverdue": false,
+      "dataFreshnessDays": 0,
+      "scoreDrivers": [
+        {
+          "category": "Allocation Drift",
+          "pointsAwarded": 0,
+          "maxPoints": 30,
+          "rationale": "Portfolio allocation within acceptable tolerance (0.8% max drift)"
+        },
+        {
+          "category": "Goal Milestones",
+          "pointsAwarded": 0,
+          "maxPoints": 30,
+          "rationale": "Goal 'Financial Independence at 45' is on track (on_track)"
+        },
+        {
+          "category": "Fiduciary Review",
+          "pointsAwarded": 0,
+          "maxPoints": 20,
+          "rationale": "Review status current (last conducted 33 days ago)"
+        },
+        {
+          "category": "Cash Drag",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Cash balance ($18,000, 5.8%) within operational policy"
+        },
+        {
+          "category": "Data Freshness",
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "rationale": "Custodian feed healthy and synchronised"
+        }
+      ],
+      "evidence": [],
+      "suggestedAction": "Review portfolio drift analysis and prepare tax-loss harvested rebalance proposal."
+    }
+  ]
+}
