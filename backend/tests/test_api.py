@@ -1,6 +1,6 @@
 """Integration Tests for FastAPI Endpoints.
 
-Tests all required API endpoints:
+Tests both Member 1 Core Intelligence Endpoints:
 - GET /health
 - GET /api/clients
 - GET /api/clients/{client_id}
@@ -9,10 +9,19 @@ Tests all required API endpoints:
 - POST /api/insights/{insight_id}/status
 - POST /api/clients/{client_id}/notes
 - GET /api/metrics/summary
-- Error handling and 404 validations
+
+And Member 2 Advisor Workflow Endpoints:
+- GET /api/v1/health
+- GET /api/v1/advisors/worklist
+- GET /api/v1/clients
+- GET /api/v1/clients/{client_id}
 """
 
 import pytest
+
+# ==========================================
+# Member 1 Intelligence Engine Endpoints
+# ==========================================
 
 def test_health_check(client):
     response = client.get("/health")
@@ -25,7 +34,7 @@ def test_api_root(client):
     response = client.get("/")
     assert response.status_code == 200
     data = response.json()
-    assert "/docs" in data["docs_url"]
+    assert "/docs" in data["documentation"]
 
 def test_list_clients(client):
     response = client.get("/api/clients?limit=10")
@@ -35,13 +44,11 @@ def test_list_clients(client):
     assert len(data["clients"]) == 10
     assert data["total_count"] >= 200
     
-    # Check deterministic ordering: first item score >= second item score
     first_score = data["clients"][0]["priority_score"]
     second_score = data["clients"][1]["priority_score"]
     assert first_score >= second_score
 
 def test_search_and_filter_clients(client):
-    # Search for Vance
     response = client.get("/api/clients?search=Vance")
     assert response.status_code == 200
     data = response.json()
@@ -79,12 +86,10 @@ def test_list_insights_queue(client):
     data = response.json()
     assert isinstance(data, list)
     assert len(data) > 0
-    # Top insight should have highest score
     assert data[0]["score"] >= data[-1]["score"]
     assert "evidence" in data[0]
 
 def test_update_insight_status(client):
-    # Find an active insight
     insights_res = client.get("/api/insights")
     ins_list = insights_res.json()
     assert len(ins_list) > 0
@@ -119,7 +124,6 @@ def test_add_client_note(client):
     assert data["author"] == "Senior Advisor Jane Doe"
     assert data["note_id"].startswith("NOTE-")
 
-    # Verify note appears in client detail
     detail_res = client.get("/api/clients/CLIENT-001")
     detail_data = detail_res.json()
     notes = detail_data["notes"]
@@ -134,3 +138,55 @@ def test_metrics_summary(client):
     assert "comparisons" in data
     assert data["total_clients_evaluated"] >= 200
     assert data["proposed_engine"]["precision_at_10"] >= data["return_only_baseline"]["precision_at_10"]
+
+# ==========================================
+# Member 2 Advisor Workflow Endpoints
+# ==========================================
+
+def test_v1_health_check(client):
+    response = client.get('/api/v1/health')
+    assert response.status_code == 200
+    data = response.json()
+    assert data['status'] == 'healthy'
+    assert 'version' in data
+
+def test_get_worklist_structure(client):
+    response = client.get('/api/v1/advisors/worklist')
+    assert response.status_code == 200
+    data = response.json()
+    assert 'totalCount' in data
+    assert 'criticalCount' in data
+    assert 'items' in data
+    assert len(data['items']) == data['totalCount']
+    assert data['totalCount'] >= 5
+
+    # Check ranking order (descending urgencyScore)
+    scores = [item['urgencyScore'] for item in data['items']]
+    assert scores == sorted(scores, reverse=True)
+
+    # Inspect first item contract fields
+    first = data['items'][0]
+    assert 'clientId' in first
+    assert 'clientName' in first
+    assert 'urgencyScore' in first
+    assert 'urgencyLevel' in first
+    assert 'scoreDrivers' in first
+    assert 'evidence' in first
+
+def test_filter_worklist_by_urgency(client):
+    response = client.get('/api/v1/advisors/worklist?urgency=critical')
+    assert response.status_code == 200
+    data = response.json()
+    for item in data['items']:
+        assert item['urgencyLevel'] == 'critical'
+
+def test_get_v1_client_by_id(client):
+    response = client.get('/api/v1/clients/cli_001')
+    assert response.status_code == 200
+    data = response.json()
+    assert data['id'] == 'cli_001'
+    assert data['fullName'] == 'Eleanor Vance'
+
+def test_get_v1_nonexistent_client(client):
+    response = client.get('/api/v1/clients/cli_999999')
+    assert response.status_code == 404

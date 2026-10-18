@@ -1,10 +1,45 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# Python
 __pycache__/
 *.py[cod]
-*$py.class
-.pytest_cache/
-*.db
-*.db-journal
-.env
-.venv
+*.class
+*.so
+.Python
 env/
 venv/
+.venv/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+*.egg-info/
+
+# Node & Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.npm
+.eslintcache
+
+# Databases & Local state
+*.sqlite3
+*.db
+*.db-journal
+local_storage/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

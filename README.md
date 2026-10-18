@@ -1,15 +1,16 @@
-# FinTech Platform: Advisor Dynamic Summary
-## Role: Data, Analytics & Intelligence Engine (Member 1)
-### Core System Question: "Why this client, why now?"
-
-This backend intelligence engine identifies clients who deserve an immediate financial review based on **goal trajectory, deviation magnitude and persistence, asset allocation drift, review horizon recency, and evidence quality**.
-
-It demonstrates mathematically and empirically why ranking clients solely by recent investment returns is fundamentally flawed.
+# AdvantaIQ
+## AI-Powered Financial Advisor Intelligence Platform
+> *"Know Who Needs Attention. Understand Why. Act at the Right Time."*
 
 ---
 
-## 1. Key Analytical Principles
+## 1. Executive Summary & Core Objective
 
+AdvantaIQ empowers wealth management advisors to proactively identify clients requiring immediate review based on **goal trajectory, deviation magnitude and persistence, asset allocation drift, review horizon recency, and evidence quality**.
+
+The platform definitively answers: **"Why this client, why now?"**
+
+It demonstrates mathematically and empirically why ranking clients solely by recent investment returns is fundamentally flawed:
 1. **Negative Return != Underperformance**: A client with negative returns (e.g. -4.2%) who outperforms their suitable benchmark (-6.5% by +2.3 pp) and remains on track for their financial goal is **not** an urgent review case.
 2. **Positive Return != On Track**: A client with positive returns (e.g. +5.1%) whose goal path requires higher compounding accumulation may face a severe goal shortfall (e.g. $314k behind modeled path) and requires prompt advisor intervention.
 3. **Allocation Drift Requires Documented Targets**: Portfolio drift is only computed when a verified target allocation exists. If absent, the engine returns an `INSUFFICIENT_EVIDENCE` state rather than fabricating drift metrics.
@@ -20,179 +21,146 @@ It demonstrates mathematically and empirically why ranking clients solely by rec
 
 ---
 
-## 2. System Architecture
+## 2. Integrated System Architecture
+
+AdvantaIQ is structured as a decoupled 3-tier architecture:
 
 ```
-backend/
-├── app/
-│   ├── main.py                  # FastAPI entry point, CORS, routers, health checks
-│   ├── config.py                # Environment settings, thresholds, heuristic weights
-│   ├── schemas.py               # Pydantic models for clients, insights, evidence, briefs
-│   ├── data/
-│   │   ├── generate_synthetic_data.py # Reproducible 200-client synthetic dataset (seed=42)
-│   │   ├── planted_scenarios.py       # Documentation and ground truth labels for scenarios
-│   │   └── repositories.py            # SQLite persistence, caching, audit trail
-│   ├── services/
-│   │   ├── analytics.py         # Pure financial math: performance gap, goal path, drift, persistence
-│   │   ├── prioritization.py    # 0-100 normalized scoring engine with 5 component breakdown
-│   │   ├── insights.py          # Evidence-backed insight card generation
-│   │   ├── advisor_brief.py     # Draft advisor meeting brief generation
-│   │   └── evaluation.py        # Proposed Engine vs Return-Only Baseline evaluation
-│   └── api/
-│       ├── clients.py           # GET /clients, GET /clients/{id}, GET /brief, POST /notes
-│       ├── insights.py          # GET /insights, POST /insights/{id}/status
-│       └── metrics.py           # GET /metrics/summary
-├── tests/                       # 42 Automated unit and integration tests (100% passing)
-│   ├── conftest.py
-│   ├── test_analytics.py
-│   ├── test_prioritization.py
-│   ├── test_insights_and_brief.py
-│   ├── test_api.py
-│   └── test_evaluation.py
-├── sample_data/                 # Verified JSON response samples for Member 2 frontend
-├── requirements.txt
-├── run_server.py
-├── .env.example
-└── README.md
+AdvantaIQ/
+├── backend/                             # Python 3.11+ / FastAPI Intelligence Engine
+│   ├── app/
+│   │   ├── main.py                      # Unified FastAPI entry point (Member 1 & 2 routes, CORS)
+│   │   ├── config.py                    # Environment settings, thresholds, heuristic weights
+│   │   ├── schemas.py                   # Pydantic models for clients, insights, evidence, briefs
+│   │   ├── api/
+│   │   │   ├── clients.py               # Member 1 client endpoints (/api/clients)
+│   │   │   ├── insights.py              # Member 1 insight queue (/api/insights)
+│   │   │   ├── metrics.py               # Member 1 evaluation metrics (/api/metrics/summary)
+│   │   │   └── v1/
+│   │   │       └── routes.py            # Member 2 advisor worklist & client API (/api/v1/...)
+│   │   ├── data/
+│   │   │   ├── generate_synthetic_data.py # Reproducible 200-client dataset (seed=42)
+│   │   │   ├── planted_scenarios.py     # 12 planted test scenario definitions & ground truth
+│   │   │   └── repositories.py          # SQLite persistence, caching, audit trail
+│   │   ├── models/
+│   │   │   └── schemas.py               # Member 2 Pydantic schemas (AdvisorInsight, WorklistResponse)
+│   │   └── services/
+│   │       ├── analytics.py             # Pure financial math (gap, trajectory, drift, persistence)
+│   │       ├── prioritization.py        # 0-100 normalized explainable scoring engine
+│   │       ├── insights.py              # Evidence-backed insight card generation
+│   │       ├── advisor_brief.py         # Grounded draft advisor meeting brief generator
+│   │       ├── evaluation.py            # Proposed Engine vs Return-Only Baseline evaluation
+│   │       ├── data_loader.py           # Shared client data loader for Member 2 worklist
+│   │       └── scoring.py               # Bounded multi-signal scoring service
+│   ├── tests/                           # 47 automated Pytest unit and integration tests
+│   ├── sample_data/                     # Live-verified JSON responses for frontend integration
+│   ├── requirements.txt                 # Backend dependencies
+│   └── run_server.py                    # Standalone backend server runner
+├── frontend/                            # React 18 / TypeScript / Vite Advisor Dashboard
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── WorklistTable.tsx        # Prioritized client table with status badges
+│   │   │   ├── WorklistSummary.tsx      # Queue counts & metric cards
+│   │   │   ├── EvidenceModal.tsx        # 3-Tab review modal (Evidence, Brief, Actions)
+│   │   │   ├── CurrencySelector.tsx     # Multi-currency switcher (INR default, USD, EUR, GBP, AED)
+│   │   │   ├── Header.tsx               # Header with currency & status indicators
+│   │   │   └── UrgencyBadge.tsx         # Color-coded urgency indicators
+│   │   ├── context/
+│   │   │   ├── CurrencyContext.tsx      # Currency exchange & formatting context
+│   │   │   └── WorkflowContext.tsx      # Workflow state management context
+│   │   ├── contracts/
+│   │   │   └── types.ts                 # Full TypeScript API contracts
+│   │   ├── services/
+│   │   │   ├── apiClient.ts             # API client connecting to /api/v1/...
+│   │   │   ├── currencyService.ts       # Currency conversion math & symbol formatting
+│   │   │   └── workflowService.ts       # Action logging, notes, briefs, deferrals
+│   │   ├── App.tsx                      # Main dashboard layout & state
+│   │   └── main.tsx                     # React entry point
+│   ├── package.json
+│   └── vite.config.ts                   # Proxies /api to http://127.0.0.1:8000
+├── shared/
+│   └── data/synthetic/clients.json      # 100% synthetic investor personas
+└── docs/
+    ├── BACKEND_WORKFLOW_CONTRACTS.md    # REST contracts for advisor CRM sync
+    └── MEMBER_2_HANDOFF.md              # Frontend handover documentation
 ```
 
 ---
 
-## 3. Mathematical Specifications
+## 3. Quickstart & Running the Integrated Project
 
-### 3.1 Performance Gap
-$$\text{Performance Gap (pp)} = \text{Client Return (\%)} - \text{Benchmark Return (\%))}$$
-Only evaluated across matching, aligned historical periods against a risk-aligned composite benchmark.
-
-### 3.2 Goal Trajectory
-Modeled path accumulates initial wealth $V_0$ and monthly contribution $PMT$ at monthly rate $r_m = \frac{\text{Assumed Annual Rate}}{12}$:
-$$V(t) = V_0(1+r_m)^t + PMT \cdot \left[\frac{(1+r_m)^t - 1}{r_m}\right]$$
-- $\text{Shortfall Amount} = \max(0, V_{\text{modeled}} - V_{\text{current}})$
-- $\text{Shortfall \%} = \frac{\text{Shortfall Amount}}{V_{\text{modeled}}} \times 100$
-- Status: `CRITICAL_SHORTFALL` ($\ge 20\%$), `BEHIND` ($5\text{–}20\%$), `ON_TRACK` ($< 5\%$), or `EXPIRED` if past target date.
-
-### 3.3 Asset Allocation Drift
-$$\text{Aggregate Drift \%} = \frac{1}{2} \sum_{i} \left| \text{Actual Weight}_i - \text{Target Weight}_i \right|$$
-Measures the percentage of total portfolio value requiring rebalancing. Evaluated against a default 5.0% alert threshold.
-
-### 3.4 Persistence
-Counts aligned historical observation periods (1M, 3M, 6M, 1Y) with negative performance gaps. Persistent drag is flagged if $\ge 2$ periods underperformed and $\ge 50\%$ of periods were negative.
-
-### 3.5 Priority Score (0–100 Normalized Scale)
-$$\text{Score} = 0.25 \cdot S_{\text{goal}} + 0.25 \cdot S_{\text{perf}} + 0.20 \cdot S_{\text{drift}} + 0.15 \cdot S_{\text{review}} + 0.15 \cdot S_{\text{evidence}}$$
-- Severity tiers:
-  - **CRITICAL** ($\ge 65.0$)
-  - **HIGH** ($\ge 40.0$)
-  - **MEDIUM** ($\ge 25.0$)
-  - **LOW** ($< 25.0$)
-- Deterministic tie-breaking: Score DESC, then Client ID ASC.
-
----
-
-## 4. Planted Test Scenarios Reference
-
-| Client ID | Scenario Name | Financial Situation | Ground Truth Urgent? | Proposed Priority | Proposed Severity |
-| :--- | :--- | :--- | :---: | :---: | :---: |
-| **CLIENT-001** | Negative Return On Track | Return -4.2%, Benchmark -6.5% (+2.3 pp gap). On track. | **No** | 8.75 | LOW |
-| **CLIENT-002** | Positive Return Deteriorating Goal | Return +5.1%, but Goal Shortfall is $314k (43.4%). | **Yes** | 45.89 | HIGH |
-| **CLIENT-003** | Multi-Risk Trigger | Behind goal + 18% allocation drift + review 410 days overdue. | **Yes** | 77.19 | CRITICAL |
-| **CLIENT-004** | Persistent Drag | Underperformed benchmark in 4/4 aligned periods (-4.2 pp 1Y). | **Yes** | 56.20 | HIGH |
-| **CLIENT-005** | Isolated Market Dip | 1M dip (-2.1 pp), but 3M, 6M, 1Y outperforming. | **No** | 18.50 | LOW |
-| **CLIENT-006** | Missing Target Allocation | Target allocation undocumented. Drift reports insufficient evidence. | **No** | 28.50 | MEDIUM |
-| **CLIENT-007** | Missing Advice History | No recorded advice. Reports insufficient evidence. | **No** | 11.20 | LOW |
-| **CLIENT-008** | Stale Portfolio Snapshot | Snapshot is 141 days old (>90d limit). Low confidence. | **Yes** | 51.50 | HIGH |
-| **CLIENT-009** | Missing Benchmark | Benchmark return data missing. Gap reports insufficient evidence. | **No** | 22.00 | LOW |
-| **CLIENT-010** | Accounting Conflict | Holdings sum ($420k) != Total value ($500k) (16% gap). Low confidence. | **Yes** | 52.40 | HIGH |
-| **CLIENT-011** | Uninitialized Client | Empty holdings, invalid goal parameters. Low confidence. | **No** | 35.00 | MEDIUM |
-| **CLIENT-012+**| Normal On-Track Clients | Balanced allocation, on-track goal, fresh review (<60d). | **No** | < 20.00 | LOW |
-
----
-
-## 5. API Endpoints Specification
-
-Base URL: `http://127.0.0.1:8000`
-
-### 5.1 System
-- `GET /health` — Health check, database status, client count
-- `GET /` — API root pointer & OpenAPI links
-
-### 5.2 Clients
-- `GET /api/clients?limit=50&offset=0&search=Vance&risk_profile=MODERATE&severity=CRITICAL`
-  - Returns: `{ clients: [...], total_count: 200, data_as_of: "2026-03-31" }`
-- `GET /api/clients/{client_id}`
-  - Returns: Complete profile, portfolio holdings, goal trajectory, historical performance series, advice history, notes, and score breakdown.
-- `GET /api/clients/{client_id}/brief`
-  - Returns: Evidence-backed draft brief for advisor review, summary facts, drift breakdown, and non-prescriptive review questions.
-- `POST /api/clients/{client_id}/notes`
-  - Body: `{ author: "Jane Doe", content: "Notes...", category: "PORTFOLIO_REVIEW" }`
-  - Returns: HTTP 201 with persisted note and audit log.
-
-### 5.3 Insights Queue
-- `GET /api/insights?sort=priority&severity=CRITICAL&type=GOAL_AT_RISK&status=active`
-  - Returns: Ranked queue of traceable insight cards with underlying EvidenceItems.
-- `POST /api/insights/{insight_id}/status`
-  - Body: `{ status: "reviewed" | "deferred" | "dismissed" | "escalated" | "resolved", reason: "string" }`
-  - Returns: Updated status confirmation with persistent audit trail.
-
-### 5.4 Metrics & Evaluation
-- `GET /api/metrics/summary`
-  - Returns: Empirical comparison between proposed goal-aware prioritization and naive return-only baseline.
-
----
-
-## 6. Evaluation Results (Proposed vs. Return-Only Baseline)
-
-Evaluated over the reproducible 200-client dataset with labeled planted scenarios:
-
-| Metric | Proposed Goal-Aware Engine | Return-Only Baseline | Delta ($\Delta$) | What It Means |
-| :--- | :---: | :---: | :---: | :--- |
-| **Precision@10** | **40.0%** | 20.0% | **+20.0 pp** | Proposed engine doubles actionable review relevance in the top queue. |
-| **Recall@10** | **80.0%** | 20.0% | **+60.0 pp** | Proposed engine captures 4x more urgent situations (e.g. positive-return goal deterioration). |
-| **False Positive Rate** | **3.1%** | 4.1% | **-1.0 pp** | Eliminates false alarms caused by negative market-wide dips where the client beat benchmark. |
-| **Calculation Accuracy** | **100.0%** | 100.0% | 0.0 pp | Verified deterministic mathematical outputs across unit test scenarios. |
-
----
-
-## 7. Member 2 Frontend Integration Guide
-
-1. **Backend Base URL**: `http://127.0.0.1:8000`
-2. **CORS Origins Allowed**: `http://localhost:3000`, `http://localhost:5173`, `http://localhost:8080`, `http://127.0.0.1:3000`, `http://127.0.0.1:5173`
-3. **Interactive Documentation**: `http://127.0.0.1:8000/docs`
-4. **Exported Sample JSON**: Realistic sample responses are provided in `backend/sample_data/`:
-   - `clients_list.json`
-   - `client_detail_CLIENT-001.json`
-   - `client_detail_CLIENT-002.json`
-   - `client_detail_CLIENT-003.json`
-   - `advisor_brief_CLIENT-003.json`
-   - `insights_queue.json`
-   - `metrics_summary.json`
-
----
-
-## 8. Quickstart & Verification Commands
-
-### Step 1: Install Dependencies
+### 3.1 Backend Setup & Execution
 ```bash
+# 1. Install Python dependencies
 pip install -r backend/requirements.txt
-```
 
-### Step 2: Run Automated Tests
-```bash
+# 2. Run backend test suite (all 47 tests)
 python -m pytest backend/tests -v
-```
-*(42 tests covering calculations, normalization, APIs, and edge cases will run and pass)*
 
-### Step 3: Start the Backend Server
-```bash
+# 3. Start the FastAPI backend
 python backend/run_server.py
 ```
-The server will start at `http://127.0.0.1:8000`.
+*Backend runs on `http://127.0.0.1:8000`. Interactive docs at `http://127.0.0.1:8000/docs`.*
 
-### Step 4: Verify Live Endpoints
-In another terminal:
+### 3.2 Frontend Setup & Execution
 ```bash
-curl http://127.0.0.1:8000/health
-curl http://127.0.0.1:8000/api/clients?limit=5
-curl http://127.0.0.1:8000/api/clients/CLIENT-003/brief
-curl http://127.0.0.1:8000/api/metrics/summary
+# 1. Install frontend dependencies
+cd frontend
+npm install
+
+# 2. Run TypeScript build verification
+npm run build
+
+# 3. Start Vite development server
+npm run dev
+```
+*Frontend runs on `http://localhost:5173` (or `http://localhost:5174`).*
+
+---
+
+## 4. Key Implemented Capabilities
+
+### A. Explainable Priority Scoring (0–100)
+- **Goal Urgency (25%)**: Shortfall magnitude, progress percentage, time remaining.
+- **Deviation Magnitude & Persistence (25%)**: Benchmark underperformance magnitude and multi-period persistence multiplier.
+- **Risk/Allocation Mismatch (20%)**: Aggregate portfolio drift vs documented target allocation.
+- **Review Recency (15%)**: Days elapsed since last formal review normalized against policy cadence.
+- **Evidence Quality (15%)**: Audit urgency for stale snapshots (>90 days), unverified records, or accounting discrepancies.
+
+### B. Global Multi-Currency Support (Member 2)
+- Default Display: **INR (₹)** with Indian formatting (`₹23,95,42,500`).
+- Supported: **INR (₹)**, **USD ($)**, **EUR (€)**, **GBP (£)**, and **AED (د.إ)**.
+- **Score Invariance**: Switching currencies mathematically converts display amounts without altering priority scores, drift percentages, or queue ranking.
+
+### C. 3-Tab Interactive Review Modal (Member 2)
+1. **Evidence & Diagnosis (Tab 1)**: Point-by-point score driver breakdown, verified financial evidence table (Observed vs. Policy Threshold), and recommended next actions.
+2. **Deterministic Review Brief (Tab 2)**: Grounded meeting briefing memo without LLM hallucinations. Includes 1-click clipboard export.
+3. **Advisor Actions & Notes (Tab 3)**: Capture time-stamped meeting notes, defer follow-ups with mandatory rationale, or resolve items with audit notes.
+
+### D. Empirical Baseline Comparison (Member 1)
+Evaluated over the 200 synthetic clients with verified ground-truth labels:
+- **Precision@10**: **40.0%** (Proposed Engine) vs **20.0%** (Return-Only Baseline) $\rightarrow$ **+20.0 pp gain**.
+- **Recall@10**: **80.0%** (Proposed Engine) vs **20.0%** (Return-Only Baseline) $\rightarrow$ **+60.0 pp gain**.
+- **False Positive Rate**: **3.1%** vs **4.1%** $\rightarrow$ Eliminates market dip false alarms.
+- **Calculation Accuracy**: **100.0%** across planted unit test scenarios.
+
+---
+
+## 5. Automated Verification Commands
+
+```bash
+# Backend test suite (47 tests)
+python -m pytest backend/tests -v
+
+# Frontend TypeScript bundle verification
+npm run build --prefix frontend
+
+# Currency conversion verification
+node frontend/test_currency.mjs
+
+# Advisor workflow logic verification
+node --experimental-strip-types frontend/test_workflow.ts
+
+# Mock vs. live consistency suite
+python backend/verify_consistency.py
 ```

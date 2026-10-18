@@ -1,0 +1,230 @@
+[
+  {
+    "id": "cli_001",
+    "fullName": "Eleanor Vance",
+    "email": "eleanor.vance@synthetic-demo.internal",
+    "phone": "+1 (555) 389-1029",
+    "age": 64,
+    "riskTolerance": "moderate",
+    "totalAum": 2850000,
+    "cashBalance": 340000,
+    "advisorAssignedId": "adv_101",
+    "lastContactDate": "2025-09-02T10:00:00Z",
+    "reviewCadenceDays": 180,
+    "tags": ["High Net Worth", "Pre-Retirement", "Overdue Review"],
+    "portfolio": {
+      "asOfDate": "2026-10-18T00:00:00Z",
+      "targetEquitiesPct": 50.0,
+      "currentEquitiesPct": 64.2,
+      "targetFixedIncomePct": 40.0,
+      "currentFixedIncomePct": 23.9,
+      "targetCashPct": 10.0,
+      "currentCashPct": 11.9,
+      "driftAlertTriggered": true
+    },
+    "primaryGoal": {
+      "id": "goal_101",
+      "title": "Capital Preservation & Estate Legacy",
+      "targetAmount": 3000000,
+      "currentAmount": 2850000,
+      "targetDate": "2027-01-01",
+      "fundingStatus": "underfunded",
+      "daysToDeadline": 74
+    },
+    "dataQuality": {
+      "feedStatus": "active",
+      "daysSinceSync": 1,
+      "hasMissingCostBasis": false
+    }
+  },
+  {
+    "id": "cli_002",
+    "fullName": "Marcus Chen",
+    "email": "marcus.chen@synthetic-demo.internal",
+    "phone": "+1 (555) 742-9901",
+    "age": 38,
+    "riskTolerance": "aggressive",
+    "totalAum": 1420000,
+    "cashBalance": 28000,
+    "advisorAssignedId": "adv_101",
+    "lastContactDate": "2026-08-12T14:30:00Z",
+    "reviewCadenceDays": 90,
+    "tags": ["Tech Founder", "Near-Term Goal", "Volatility Alert"],
+    "portfolio": {
+      "asOfDate": "2026-10-18T00:00:00Z",
+      "targetEquitiesPct": 80.0,
+      "currentEquitiesPct": 86.5,
+      "targetFixedIncomePct": 15.0,
+      "currentFixedIncomePct": 11.5,
+      "targetCashPct": 5.0,
+      "currentCashPct": 2.0,
+      "driftAlertTriggered": true
+    },
+    "primaryGoal": {
+      "id": "goal_102",
+      "title": "Down Payment for Secondary Residence",
+      "targetAmount": 450000,
+      "currentAmount": 390000,
+      "targetDate": "2026-12-15",
+      "fundingStatus": "critical",
+      "daysToDeadline": 58
+    },
+    "dataQuality": {
+      "feedStatus": "active",
+      "daysSinceSync": 2,
+      "hasMissingCostBasis": false
+    }
+  },
+  {
+    "id": "cli_003",
+    "fullName": "Sofia Rodriguez",
+    "email": "sofia.rodriguez@synthetic-demo.internal",
+    "phone": "+1 (555) 891-3420",
+    "age": 45,
+    "riskTolerance": "growth",
+    "totalAum": 890000,
+    "cashBalance": 210000,
+    "advisorAssignedId": "adv_101",
+    "lastContactDate": "2026-06-20T11:00:00Z",
+    "reviewCadenceDays": 120,
+    "tags": ["Business Owner", "Severe Cash Drag", "Stale Data"],
+    "portfolio": {
+      "asOfDate": "2026-09-30T00:00:00Z",
+      "targetEquitiesPct": 70.0,
+      "currentEquitiesPct": 52.0,
+      "targetFixedIncomePct": 20.0,
+      "currentFixedIncomePct": 24.4,
+      "targetCashPct": 10.0,
+      "currentCashPct": 23.6,
+      "driftAlertTriggered": true
+    },
+    "primaryGoal": {
+      "id": "goal_103",
+      "title": "Business Expansion Reserve",
+      "targetAmount": 1000000,
+      "currentAmount": 890000,
+      "targetDate": "2028-06-01",
+      "fundingStatus": "on_track",
+      "daysToDeadline": 591
+    },
+    "dataQuality": {
+      "feedStatus": "stale",
+      "daysSinceSync": 18,
+      "hasMissingCostBasis": true
+    }
+  },
+  {
+    "id": "cli_004",
+    "fullName": "David & Sarah Miller",
+    "email": "millers.family@synthetic-demo.internal",
+    "phone": "+1 (555) 433-8821",
+    "age": 52,
+    "riskTolerance": "moderate",
+    "totalAum": 3650000,
+    "cashBalance": 95000,
+    "advisorAssignedId": "adv_101",
+    "lastContactDate": "2026-07-10T16:00:00Z",
+    "reviewCadenceDays": 120,
+    "tags": ["Family Trust", "College Funding"],
+    "portfolio": {
+      "asOfDate": "2026-10-18T00:00:00Z",
+      "targetEquitiesPct": 60.0,
+      "currentEquitiesPct": 65.5,
+      "targetFixedIncomePct": 35.0,
+      "currentFixedIncomePct": 31.9,
+      "targetCashPct": 5.0,
+      "currentCashPct": 2.6,
+      "driftAlertTriggered": false
+    },
+    "primaryGoal": {
+      "id": "goal_104",
+      "title": "College Tuition for Twins",
+      "targetAmount": 400000,
+      "currentAmount": 375000,
+      "targetDate": "2027-08-01",
+      "fundingStatus": "on_track",
+      "daysToDeadline": 287
+    },
+    "dataQuality": {
+      "feedStatus": "active",
+      "daysSinceSync": 1,
+      "hasMissingCostBasis": false
+    }
+  },
+  {
+    "id": "cli_005",
+    "fullName": "Amina Patel",
+    "email": "amina.patel@synthetic-demo.internal",
+    "phone": "+1 (555) 602-1144",
+    "age": 29,
+    "riskTolerance": "aggressive",
+    "totalAum": 310000,
+    "cashBalance": 18000,
+    "advisorAssignedId": "adv_101",
+    "lastContactDate": "2026-09-15T09:30:00Z",
+    "reviewCadenceDays": 180,
+    "tags": ["NextGen Accumulator", "Fully Aligned"],
+    "portfolio": {
+      "asOfDate": "2026-10-18T00:00:00Z",
+      "targetEquitiesPct": 85.0,
+      "currentEquitiesPct": 84.2,
+      "targetFixedIncomePct": 10.0,
+      "currentFixedIncomePct": 10.0,
+      "targetCashPct": 5.0,
+      "currentCashPct": 5.8,
+      "driftAlertTriggered": false
+    },
+    "primaryGoal": {
+      "id": "goal_105",
+      "title": "Financial Independence at 45",
+      "targetAmount": 1500000,
+      "currentAmount": 310000,
+      "targetDate": "2042-01-01",
+      "fundingStatus": "on_track",
+      "daysToDeadline": 5553
+    },
+    "dataQuality": {
+      "feedStatus": "active",
+      "daysSinceSync": 0,
+      "hasMissingCostBasis": false
+    }
+  },
+  {
+    "id": "cli_006",
+    "fullName": "Robert Kowalski",
+    "email": "robert.kowalski@synthetic-demo.internal",
+    "phone": "+1 (555) 234-7788",
+    "age": 71,
+    "riskTolerance": "conservative",
+    "totalAum": 1150000,
+    "cashBalance": 85000,
+    "advisorAssignedId": "adv_101",
+    "lastContactDate": "2026-05-10T10:00:00Z",
+    "reviewCadenceDays": 120,
+    "tags": ["Senior Investor", "RMD Distribution", "Review Due"],
+    "portfolio": {
+      "asOfDate": "2026-10-18T00:00:00Z",
+      "targetEquitiesPct": 30.0,
+      "currentEquitiesPct": 36.5,
+      "targetFixedIncomePct": 60.0,
+      "currentFixedIncomePct": 56.1,
+      "targetCashPct": 10.0,
+      "currentCashPct": 7.4,
+      "driftAlertTriggered": true
+    },
+    "primaryGoal": {
+      "id": "goal_106",
+      "title": "Annual RMD Distribution Strategy",
+      "targetAmount": 65000,
+      "currentAmount": 65000,
+      "targetDate": "2026-12-31",
+      "fundingStatus": "achieved",
+      "daysToDeadline": 74
+    },
+    "dataQuality": {
+      "feedStatus": "active",
+      "daysSinceSync": 3,
+      "hasMissingCostBasis": false
+    }
+  }
+]
